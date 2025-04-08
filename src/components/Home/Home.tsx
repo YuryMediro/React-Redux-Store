@@ -1,5 +1,11 @@
+import { Poster } from '../Poster/Poster'
+
 interface HomeProps {}
 
 export const Home = ({}: HomeProps) => {
-	return <div>Home</div>
+	return (
+		<section>
+			<Poster />
+		</section>
+	)
 }

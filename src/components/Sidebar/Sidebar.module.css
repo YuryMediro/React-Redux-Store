@@ -1,0 +1,53 @@
+.sidebar {
+	display: flex;
+	flex-direction: column;
+	border: 1px solid #191919;
+	background-color: #191919;
+	border-radius: 6px;
+	width: 100%;
+	max-width: 304px;
+	padding: 25px 24px 0 24px;
+	height: 100%;
+	min-height: 442px;
+}
+.loading {
+	color: #f6f6f7;
+}
+.title {
+	color: #ffffff;
+	font-size: 20px;
+	font-weight: 600;
+}
+.nav {
+	margin-top: 32px;
+}
+.menu {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+.item {
+	color: #576067;
+	font-size: 18px;
+	font-weight: 500;
+}
+.item:hover {
+	color: #ffffff;
+}
+
+.item:focus {
+	color: #6c3eb8;
+}
+.footer {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 160px;
+}
+.footer a {
+	color: #576067;
+	font-size: 16px;
+	font-weight: 500px;
+}
+.footer a:hover {
+	color: #616e74;
+}

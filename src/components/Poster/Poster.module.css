@@ -1,0 +1,61 @@
+.poster {
+	display: flex;
+	flex-direction: column;
+	border: 1px solid #191919;
+	background-color: #191919;
+	border-radius: 6px;
+	padding: 0 4px 0 4px;
+    width: 950px;
+    height: 442px;
+    
+}
+.title {
+	color: #616e74;
+	font-size: 115px;
+	font-weight: 900;
+	opacity: 0.3;
+    text-align: center;
+}
+.subtitle {
+	color: #616e74;
+	font-size: 16px;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+.text {
+	color: #f6f6f7;
+	font-size: 42px;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+.button {
+	color: #ffffff;
+	font-size: 16px;
+	font-weight: 600;
+	padding: 9px 0;
+    width: 125px;
+	border: 1px solid #6c3eb8;
+	background-color: #6c3eb8;
+	border-radius: 6px;
+    margin-top: 10px;
+}
+.button:hover{
+    background-color: #8B57C6;
+    border: 1px solid #8B57C6;
+}
+.product{
+    display: flex;
+    position: sticky;
+}
+.textContainer{
+    display: flex;
+    flex-direction: column;
+    padding-left: 24px;
+    gap: 15px;
+}
+.imgContainer{
+    position: absolute;
+    left: 47%;
+    top: -35%;
+}
+
