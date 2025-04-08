@@ -2,6 +2,7 @@
 	display: flex;
 	justify-content: space-between;
 	margin: 20px;
+	align-items: center;
 }
 .logoLink {
 	display: flex;
@@ -10,6 +11,7 @@
 .logoText {
 	color: #ffffff;
 	font-size: 22px;
+	font-weight: 400;
 }
 .user {
 	display: flex;
@@ -22,6 +24,7 @@
 	font-weight: 400;
 	color: #b8b8b8;
 }
+
 .form {
 	display: flex;
 	align-items: center;
@@ -32,8 +35,8 @@
 	width: 303px;
 	gap: 16px;
 }
-.iconSearch{
-    cursor: pointer;
+.iconSearch {
+	cursor: pointer;
 }
 .input {
 	width: 303px;
@@ -44,9 +47,10 @@
 	align-items: center;
 	gap: 23px;
 }
-.iconLikes {
+
+.icon {
 	cursor: pointer;
 }
-.iconBag {
-	cursor: pointer;
+.icon:hover {
+	transform: scale(1.1);
 }

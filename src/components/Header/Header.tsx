@@ -9,11 +9,11 @@ interface HeaderProps {}
 
 export const Header = ({}: HeaderProps) => {
 	return (
-		<div className={s.header}>
+		<section className={s.header}>
 			<div className={s.logo}>
 				<Link to={'/'} className={s.logoLink}>
-					<img src={logo} alt='STUFF' />
-					<div className={s.logoText}>TUFF</div>
+					<img src={logo} alt='STORE' />
+					<div className={s.logoText}>TORE</div>
 				</Link>
 			</div>
 
@@ -35,10 +35,11 @@ export const Header = ({}: HeaderProps) => {
 					/>
 				</div>
 			</form>
+
 			<div className={s.iconContainer}>
-				<img className={s.iconLikes} src={likes} alt='' />
-				<img className={s.iconBag} src={bag} alt='' />
+				<img className={s.icon} src={likes} alt='' />
+				<img className={s.icon} src={bag} alt='' />
 			</div>
-		</div>
+		</section>
 	)
 }

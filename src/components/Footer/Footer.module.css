@@ -1,0 +1,42 @@
+.footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border: 1px solid #191919;
+	background-color: #191919;
+	border-radius: 6px;
+	padding: 16px 25px 16px 25px;
+}
+.logoLink {
+	display: flex;
+	align-items: center;
+}
+.logoText {
+	color: #ffffff;
+	font-size: 22px;
+	font-weight: 400;
+}
+.copyright {
+	font-size: 16px;
+	font-weight: 500;
+	color: #576067;
+	gap: 4px;
+	display: flex;
+	align-items: center;
+}
+.copyright a {
+	color: #6c3eb8;
+}
+.copyright a:hover {
+	color: #8b57c6;
+}
+.socials {
+	display: flex;
+	gap: 18px;
+}
+.socials a:hover {
+	color: #8b57c6;
+}
+.socialIcon {
+	width: 23px;
+}
