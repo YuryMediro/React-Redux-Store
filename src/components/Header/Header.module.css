@@ -1,0 +1,52 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+	margin: 20px;
+}
+.logoLink {
+	display: flex;
+	align-items: center;
+}
+.logoText {
+	color: #ffffff;
+	font-size: 22px;
+}
+.user {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	gap: 16px;
+}
+.userName {
+	font-size: 16px;
+	font-weight: 400;
+	color: #b8b8b8;
+}
+.form {
+	display: flex;
+	align-items: center;
+	border: 1px solid #191919;
+	background-color: #191919;
+	border-radius: 6px;
+	padding: 10px;
+	width: 303px;
+	gap: 16px;
+}
+.iconSearch{
+    cursor: pointer;
+}
+.input {
+	width: 303px;
+	color: #b8b8b8;
+}
+.iconContainer {
+	display: flex;
+	align-items: center;
+	gap: 23px;
+}
+.iconLikes {
+	cursor: pointer;
+}
+.iconBag {
+	cursor: pointer;
+}
