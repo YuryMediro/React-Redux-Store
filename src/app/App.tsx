@@ -3,6 +3,7 @@ import s from './App.module.css'
 import { Footer } from '../components/Footer/Footer'
 import { Header } from '../components/Header/Header'
 import { SidebarContainer } from '../components/Sidebar/SidebarContainer'
+import { Poster } from '../components/Poster/Poster'
 
 
 interface AppProps {}
@@ -13,8 +14,9 @@ export const App = ({}: AppProps) => {
 			<Header />
 			<div className={s.container}>
 				<SidebarContainer />
-				<AppRoutes />
+				<Poster />
 			</div>
+				<AppRoutes />
 			<Footer />
 		</div>
 	)

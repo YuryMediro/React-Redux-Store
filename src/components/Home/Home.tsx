@@ -1,11 +1,11 @@
-import { Poster } from '../Poster/Poster'
+import { ProductsContainer } from '../Product/ProductsContainer'
 
 interface HomeProps {}
 
 export const Home = ({}: HomeProps) => {
 	return (
 		<section>
-			<Poster />
+			<ProductsContainer />
 		</section>
 	)
 }
