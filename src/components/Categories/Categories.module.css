@@ -1,0 +1,46 @@
+.categories {
+	border: 1px solid #191919;
+	background-color: #191919;
+	border-radius: 6px;
+	display: flex;
+	flex-direction: column;
+	gap: 22px;
+	height: 100%;
+	min-height: 380px;
+}
+.title {
+	color: #ffffff;
+	font-size: 20px;
+	font-weight: 600;
+	text-align: center;
+	margin-top: 22px;
+}
+.cardContainer {
+	display: flex;
+	justify-content: space-around;
+}
+.card {
+	display: flex;
+	flex-direction: column;
+	width: 230px;
+	border-radius: 8px;
+	transition: 0.3s;
+}
+.card:hover {
+	scale: 1.1;
+	transition: 0.3s;
+}
+.itemContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	align-items: center;
+}
+.img {
+    border-radius: 6px;
+}
+.name {
+	color: #ffffff;
+	font-size: 20px;
+	font-weight: 600;
+}

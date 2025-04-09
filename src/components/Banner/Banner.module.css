@@ -1,0 +1,64 @@
+.banner {
+	display: flex;
+}
+.leftSide {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #191919;
+	border-radius: 6px;
+	width: 100%;
+	max-width: 637px;
+	position: sticky;
+}
+.sneaker {
+	position: absolute;
+	top: 50%;
+	left: -4%;
+}
+.console {
+	position: absolute;
+	top: 77%;
+	left: 64%;
+}
+.text {
+	color: #6c3eb8;
+	font-size: 70px;
+	font-weight: 300;
+}
+.text span {
+	color: #6c3eb8;
+	font-size: 150px;
+	font-weight: 400;
+}
+.button {
+	color: #ffffff;
+	font-size: 20px;
+	font-weight: 600;
+	border: 1px solid #6c3eb8;
+	background-color: #6c3eb8;
+	border-radius: 6px;
+	padding: 9px 20px;
+	margin-top: 30px;
+}
+.button:hover {
+	background-color: #8b57c6;
+	border: 1px solid #8b57c6;
+}
+.rightSide {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.discount {
+	position: absolute;
+	color: #212123;
+	font-size: 20px;
+	font-weight: 500;
+	padding-top: 515px;
+}
+.discount span {
+	color: #6c3eb8;
+	font-size: 20px;
+	font-weight: 600;
+}
