@@ -1,5 +1,4 @@
-// components/ImageGalleryModal/ImageGalleryModal.tsx
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import s from './ImageGalleryModal.module.css'
 
 interface ImageGalleryModalProps {
@@ -15,31 +14,36 @@ export const ImageGalleryModal = ({
 }: ImageGalleryModalProps) => {
 	const [currentIndex, setCurrentIndex] = useState(initialIndex)
 	const [isTransitioning, setIsTransitioning] = useState(false)
+	const imageRefs = useRef<(HTMLImageElement | null)[]>([])
 
-	const navigate = (direction: 'prev' | 'next') => {
-		if (isTransitioning) return // Если анимация уже идёт — ничего не делаем
+	// Предзагрузка изображений
+	useEffect(() => {
+		images.forEach(img => {
+			const imgObj = new Image()
+			imgObj.src = img
+		})
+	}, [images])
 
-		setIsTransitioning(true) // Запускаем анимацию
-		setTimeout(() => {
-			setCurrentIndex(prev => {
-				if (direction === 'next') {
-					return (prev + 1) % images.length // Переход к следующему (по кругу)
-				} else {
-					return (prev - 1 + images.length) % images.length // Переход к предыдущему (по кругу)
-				}
-			})
-			setIsTransitioning(false) // Завершаем анимацию
-		}, 300)
+	const handleImageChange = (newIndex: number) => {
+		if (newIndex === currentIndex || isTransitioning) return
+
+		setIsTransitioning(true)
+
+		// Ждём когда новое изображение загрузится
+		const img = new Image()
+		img.src = images[newIndex]
+		img.onload = () => {
+			setCurrentIndex(newIndex)
+			setIsTransitioning(false)
+		}
 	}
 
-	const handleThumbnailClick = (index: number) => {
-		if (index === currentIndex || isTransitioning) return // Если уже выбрано или идёт анимация — пропускаем
-
-		setIsTransitioning(true) // Запускаем анимацию
-		setTimeout(() => {
-			setCurrentIndex(index) // Устанавливаем новый индекс
-			setIsTransitioning(false) // Завершаем анимацию
-		}, 300)
+	const navigate = (direction: 'prev' | 'next') => {
+		const newIndex =
+			direction === 'next'
+				? (currentIndex + 1) % images.length
+				: (currentIndex - 1 + images.length) % images.length
+		handleImageChange(newIndex)
 	}
 
 	return (
@@ -49,17 +53,32 @@ export const ImageGalleryModal = ({
 					&times;
 				</button>
 
-				<div
-					className={`${s.mainImage} ${isTransitioning ? s.fadeOut : s.fadeIn}`}
-				>
-					<img
-						src={images[currentIndex]}
-						alt={`Gallery view ${currentIndex + 1}`}
-					/>
+				<div className={s.imageContainer}>
+					{/* Основное изображение с плавным переходом */}
+					<div className={s.imageWrapper}>
+						{images.map((img, index) => (
+							<img
+								key={index}
+								ref={el => {
+									imageRefs.current[index] = el
+								}}
+								src={img}
+								alt={`Gallery view ${index + 1}`}
+								className={`${s.mainImage} ${
+									index === currentIndex ? s.active : s.inactive
+								}`}
+								loading='eager'
+							/>
+						))}
+					</div>
 				</div>
 
 				<div className={s.controls}>
-					<button className={s.navButton} onClick={() => navigate('prev')}>
+					<button
+						className={s.navButton}
+						onClick={() => navigate('prev')}
+						disabled={isTransitioning}
+					>
 						&lt;
 					</button>
 					<div className={s.thumbnails}>
@@ -67,15 +86,23 @@ export const ImageGalleryModal = ({
 							<div
 								key={index}
 								className={`${s.thumbnail} ${
-									index === currentIndex ? s.active : ''
+									index === currentIndex ? s.activeThumb : ''
 								}`}
-								onClick={() => handleThumbnailClick(index)}
+								onClick={() => handleImageChange(index)}
 							>
-								<img src={image} alt={`Thumbnail ${index + 1}`} />
+								<img
+									src={image}
+									alt={`Thumbnail ${index + 1}`}
+									loading='lazy'
+								/>
 							</div>
 						))}
 					</div>
-					<button className={s.navButton} onClick={() => navigate('next')}>
+					<button
+						className={s.navButton}
+						onClick={() => navigate('next')}
+						disabled={isTransitioning}
+					>
 						&gt;
 					</button>
 				</div>
