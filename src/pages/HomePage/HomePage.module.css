@@ -1,0 +1,9 @@
+.home {
+	display: flex;
+	flex-direction: column;
+	gap: 21px;
+}
+.container {
+	display: flex;
+	gap: 20px;
+}
