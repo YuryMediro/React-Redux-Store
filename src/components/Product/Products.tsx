@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import { ProductsType } from '../../features/products/productsSlice'
 import s from './Products.module.css'
+import { Button } from '../../shared/Button/Button'
 
 interface ProductsProps {
 	products: ProductsType[]
@@ -45,7 +46,7 @@ export const Products = ({ title, products }: ProductsProps) => {
 					</NavLink>
 				))}
 			</div>
-			<button className={s.button}>See more</button>
+			<Button className={s.button}>See more</Button>
 		</section>
 	)
 }

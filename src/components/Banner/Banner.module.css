@@ -32,19 +32,10 @@
 	font-weight: 400;
 }
 .button {
-	color: #ffffff;
-	font-size: 20px;
-	font-weight: 600;
-	border: 1px solid #6c3eb8;
-	background-color: #6c3eb8;
-	border-radius: 6px;
 	padding: 9px 20px;
 	margin-top: 30px;
 }
-.button:hover {
-	background-color: #8b57c6;
-	border: 1px solid #8b57c6;
-}
+
 .rightSide {
 	display: flex;
 	flex-direction: column;

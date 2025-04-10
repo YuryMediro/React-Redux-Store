@@ -2,6 +2,7 @@ import s from './Banner.module.css'
 import banner from '../../assets/banner.png'
 import sneaker from '../../assets/sneaker.svg'
 import console from '../../assets/console.svg'
+import { Button } from '../../shared/Button/Button'
 export const Banner = () => {
 	return (
 		<section className={s.banner}>
@@ -13,7 +14,7 @@ export const Banner = () => {
 						SALE
 					</span>
 				</p>
-				<button className={s.button}>See more</button>
+				<Button className={s.button}>See more</Button>
 				<img className={s.sneaker} src={sneaker} alt='sneaker' />
 				<img className={s.console} src={console} alt='console' />
 			</div>

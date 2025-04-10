@@ -1,5 +1,6 @@
 import s from './Poster.module.css'
 import computer from '../../assets/computer.svg'
+import { Button } from '../../shared/Button/Button'
 interface PosterProps {}
 
 export const Poster = ({}: PosterProps) => {
@@ -13,7 +14,7 @@ export const Poster = ({}: PosterProps) => {
 						LENNON r2d2 <br />
 						with NVIDIA 5090 TI
 					</h1>
-					<button className={s.button}>Shop Now</button>
+					<Button className={s.button}>Shop Now</Button>
 				</div>
 				<div className={s.imgContainer}>
 					<img className={s.img} src={computer} alt='' />
