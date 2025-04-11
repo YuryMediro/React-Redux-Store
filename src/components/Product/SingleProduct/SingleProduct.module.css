@@ -106,6 +106,7 @@
 .button {
 	padding: 9px 20px;
 }
+
 .button:disabled {
 	background-color: #576067;
 	border-color: #576067;

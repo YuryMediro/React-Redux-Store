@@ -10,5 +10,5 @@ export const ProductsContainer = () => {
 		dispatch(getProducts())
 	}, [dispatch])
 
-	return <Products products={productsList} title={'Trending'} />
+	return <Products products={productsList} title={'Trending'}  />
 }

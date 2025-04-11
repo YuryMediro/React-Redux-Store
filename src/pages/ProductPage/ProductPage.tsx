@@ -1,3 +1,4 @@
+import { Products } from '../../components/Product/Products'
 import { SingleProductContainer } from '../../components/Product/SingleProduct/SingleProductContainer'
 import { SidebarContainer } from '../../components/Sidebar/SidebarContainer'
 import { Layout } from '../../widgets/Layout/Layout'
@@ -12,6 +13,7 @@ export const ProductPage = ({}: ProductPageProps) => {
 					<SidebarContainer />
 					<SingleProductContainer />
 				</div>
+				<Products title='Related products' products={[]}/>
 			</Layout>
 		</section>
 	)

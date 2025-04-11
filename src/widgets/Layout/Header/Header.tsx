@@ -5,10 +5,14 @@ import avatar from '../../../assets/avatar.svg'
 import search from '../../../assets/search.svg'
 import likes from '../../../assets/likes.svg'
 import bag from '../../../assets/bag.svg'
+import { createPortal } from 'react-dom'
+import { UserRegistration } from '../../../processes/UserRegistration/UserRegistration'
+import { useFormModal } from '../../../hooks/useFormModal'
 
 interface HeaderProps {}
 
 export const Header = ({}: HeaderProps) => {
+	const modalRegistration = useFormModal(false)
 	return (
 		<section className={s.header}>
 			<div className={s.logo}>
@@ -18,10 +22,17 @@ export const Header = ({}: HeaderProps) => {
 				</Link>
 			</div>
 
-			<div className={s.user}>
+			<button onClick={modalRegistration.handleOnClick} className={s.user}>
 				<img className={s.avatar} src={avatar} alt='' />
 				<div className={s.userName}>GUESt</div>
-			</div>
+			</button>
+			{createPortal(
+				<UserRegistration
+					visible={modalRegistration.visible}
+					setVisible={modalRegistration.handleOnClick}
+				/>,
+				document.body
+			)}
 
 			<form className={s.formContainer}>
 				<div className={s.form}>

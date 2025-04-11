@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import s from './Sidebar.module.css'
-import { Category } from '../../types/categoryType'
+import { Category } from '../../utils/types/categoryType'
 
 interface SidebarProps {
 	categories: Category[]

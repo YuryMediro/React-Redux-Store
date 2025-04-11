@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Category } from '../../types/categoryType'
+import { Category } from '../../utils/types/categoryType'
 import s from './Categories.module.css'
 interface CategoriesProps {
 	categories: Category[]
