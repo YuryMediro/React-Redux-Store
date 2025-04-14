@@ -1,21 +1,21 @@
 import clsx from 'clsx'
-import s from './RegistrationForm.module.css'
-import { FaUser, FaLock, FaEye } from 'react-icons/fa'
+import s from './LoginForm.module.css'
+import { FaLock, FaEye } from 'react-icons/fa'
 import { MdOutlineAlternateEmail } from 'react-icons/md'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { validateRegSchema } from '../../../utils/validate/validateRegSchema'
-import { formRegValues } from '../../../utils/types/formRegValues'
 import { Button } from '../../../shared/Button/Button'
 import { usePasswordVisible } from '../../../hooks/usePasswordVisible'
-
+import { formLogValues } from '../../../utils/types/formLogValues'
+import { validateLogSchema } from '../../../utils/validate/ValidateLogSchema'
 import { useAppDispatch, useAppSelector } from '../../../hooks/redux'
-import { createUser } from '../../../features/user/userSlice'
-interface RegistrationFormProps {
+import { loginUser } from '../../../features/user/userSlice'
+
+interface LoginFormProps {
 	toggleForm: () => void
 }
 
-export const RegistrationForm = ({ toggleForm }: RegistrationFormProps) => {
+export const LoginForm = ({ toggleForm }: LoginFormProps) => {
 	const dispatch = useAppDispatch()
 	const { isLoading, error } = useAppSelector(state => state.user)
 	const passwordVisible = usePasswordVisible(false)
@@ -25,25 +25,22 @@ export const RegistrationForm = ({ toggleForm }: RegistrationFormProps) => {
 		handleSubmit,
 		reset,
 		formState: { errors, isValid },
-	} = useForm<formRegValues>({
+	} = useForm<formLogValues>({
 		mode: 'onBlur',
-		resolver: yupResolver(validateRegSchema),
+		resolver: yupResolver(validateLogSchema),
 	})
 
-	const onSubmit: SubmitHandler<formRegValues> = async data => {
+	const onSubmit: SubmitHandler<formLogValues> = async data => {
 		try {
 			await dispatch(
-				createUser({
+				loginUser({
 					email: data.email,
 					password: data.password,
-					name: data.name,
-					role: 'customer',
-					avatar: 'https://cdn-icons-png.flaticon.com/512/6388/6388000.png',
 				})
-			).unwrap() // unwrap() для корректной обработки ошибок
+			).unwrap()
 			reset()
 		} catch (err) {
-			console.error('Registration failed:', err)
+			console.error('Login failed:', err)
 		}
 	}
 
@@ -88,25 +85,8 @@ export const RegistrationForm = ({ toggleForm }: RegistrationFormProps) => {
 						<p className={s.error_message}>{errors.password.message}</p>
 					)}
 				</div>
-				<div className={s.inputContainer}>
-					<div className={clsx(s.input, { [s.error]: errors.name })}>
-						<FaUser className={s.icon} />
-						<input
-							className={clsx(s.inputFields, {
-								[s.error]: errors.name,
-							})}
-							type='name'
-							placeholder='Username'
-							id='name'
-							{...register('name')}
-						/>
-					</div>
-					{errors.name && (
-						<p className={s.error_message}>{errors.name.message}</p>
-					)}
-				</div>
 				<p onClick={toggleForm} className={s.alreadyHaveAccount}>
-					I already have an account
+					I don't have an account
 				</p>
 
 				{error && <p className={s.error_message}>{error}</p>}
@@ -117,7 +97,7 @@ export const RegistrationForm = ({ toggleForm }: RegistrationFormProps) => {
 						type='submit'
 						disabled={!isValid || isLoading}
 					>
-						{isLoading ? 'Loading...' : ' Create an account'}
+						{isLoading ? 'Loading...' : 'Sign in'}
 					</Button>
 				</div>
 			</form>
