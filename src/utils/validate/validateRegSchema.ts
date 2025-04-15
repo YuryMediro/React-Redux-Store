@@ -15,4 +15,5 @@ export const validateRegSchema = yup.object().shape({
 		.min(8, 'Пароль должен состоять не менее чем из 8 символов')
 		.max(20, 'Пароль не должен состоять более чем из 20 символов'),
 	name: yup.string().trim().required('Обязательное поле'),
+	
 })

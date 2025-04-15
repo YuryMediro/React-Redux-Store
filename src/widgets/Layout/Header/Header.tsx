@@ -35,15 +35,19 @@ export const Header = ({}: HeaderProps) => {
 				<div className={s.userContainer}>
 					{currentUser ? (
 						<div className={s.user}>
-							<img
-								className={s.avatar}
-								src={currentUser.avatar || avatar}
-								alt={currentUser.name}
-							/>
-							<div className={s.userName}>{currentUser.name}</div>
-							<button onClick={handleLogout} className={s.logoutButton}>
-								Logout
-							</button>
+							<Link to={'/profile'} className={s.userLink}>
+								<img
+									className={s.avatar}
+									src={currentUser.avatar || avatar}
+									alt={currentUser.name}
+								/>
+								<div className={s.userName}>{currentUser.name}</div>
+							</Link>
+							<Link to={'/'} className={s.logoutLink}>
+								<button onClick={handleLogout} className={s.logoutButton}>
+									Logout
+								</button>
+							</Link>
 						</div>
 					) : (
 						<button
@@ -65,7 +69,6 @@ export const Header = ({}: HeaderProps) => {
 							name='search'
 							autoComplete='off'
 							placeholder='Search for anything...'
-							value=''
 						/>
 					</div>
 				</form>

@@ -90,6 +90,19 @@ export const refreshTokens = createAsyncThunk(
 	}
 )
 
+export const updateUser = createAsyncThunk(
+	'user/updateUser',
+	async (payload: User, thunkAPI) => {
+		try {
+			const res = await axios.put(`${BASE_URL}/users/${payload.id}`, payload)
+			return res.data
+		} catch (err) {
+			console.log(err)
+			return thunkAPI.rejectWithValue(err)
+		}
+	}
+)
+
 export const userSlice = createSlice({
 	name: 'user',
 	initialState,
@@ -157,6 +170,13 @@ export const userSlice = createSlice({
 			state.currentUser = null
 			localStorage.removeItem('user')
 			localStorage.removeItem('tokens')
+		})
+
+		builder.addCase(updateUser.fulfilled, (state, action) => {
+			state.currentUser = action.payload
+			state.isLoading = false
+			state.error = null
+			localStorage.setItem('user', JSON.stringify(action.payload))
 		})
 	},
 })

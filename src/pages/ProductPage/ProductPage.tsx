@@ -13,7 +13,7 @@ export const ProductPage = ({}: ProductPageProps) => {
 					<SidebarContainer />
 					<SingleProductContainer />
 				</div>
-				<Products title='Related products' products={[]}/>
+				<Products title='Related products' products={[]} />
 			</Layout>
 		</section>
 	)
