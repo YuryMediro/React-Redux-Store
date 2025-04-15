@@ -10,16 +10,24 @@ export interface User {
 	avatar: string
 	role: string
 }
+
+interface AuthToken {
+	access_token: string
+	refresh_token: string
+}
+
 interface initialStateProps {
 	currentUser: User | null
 	isLoading: boolean
 	error: string | null
+	tokens: AuthToken | null
 }
 
 const initialState: initialStateProps = {
 	currentUser: JSON.parse(localStorage.getItem('user') || 'null'),
 	isLoading: false,
 	error: null,
+	tokens: JSON.parse(localStorage.getItem('tokens') || 'null'),
 }
 
 export const createUser = createAsyncThunk(
@@ -43,19 +51,41 @@ export const loginUser = createAsyncThunk(
 	'users/loginUser',
 	async (payload: { email: string; password: string }, thunkAPI) => {
 		try {
-			const { data } = await axios.get<User[]>(`${BASE_URL}/users`)
-
-			const user = data.find(
-				u => u.email === payload.email && u.password === payload.password
+			const { data: tokens } = await axios.post<AuthToken>(
+				`${BASE_URL}/auth/login`,
+				{
+					email: payload.email,
+					password: payload.password,
+				}
 			)
+			const { data: user } = await axios.get<User>(`${BASE_URL}/auth/profile`, {
+				headers: {
+					Authorization: `Bearer ${tokens.access_token}`,
+				},
+			})
 
-			if (!user) {
-				return thunkAPI.rejectWithValue('User not found')
-			}
-			return user
+			return { user, tokens }
 		} catch (err) {
 			console.log(err)
-			return thunkAPI.rejectWithValue(err)
+			return thunkAPI.rejectWithValue('Invalid email or password')
+		}
+	}
+)
+
+export const refreshTokens = createAsyncThunk(
+	'auth/refresh-token',
+	async (refreshToken: string, thunkAPI) => {
+		try {
+			const { data: tokens } = await axios.post<AuthToken>(
+				`${BASE_URL}/auth/refresh-token`,
+				{
+					refreshToken: refreshToken,
+				}
+			)
+			return tokens
+		} catch (err) {
+			console.log(err)
+			return thunkAPI.rejectWithValue('Invalid refresh token')
 		}
 	}
 )
@@ -66,7 +96,9 @@ export const userSlice = createSlice({
 	reducers: {
 		logoutUser: state => {
 			state.currentUser = null
+			state.tokens = null
 			localStorage.removeItem('user')
+			localStorage.removeItem('tokens')
 		},
 	},
 	extraReducers: builder => {
@@ -92,11 +124,13 @@ export const userSlice = createSlice({
 
 		builder.addCase(
 			loginUser.fulfilled,
-			(state, action: PayloadAction<User>) => {
-				state.currentUser = action.payload
+			(state, action: PayloadAction<{ user: User; tokens: AuthToken }>) => {
+				state.currentUser = action.payload.user
+				state.tokens = action.payload.tokens
 				state.isLoading = false
 				state.error = null
-				localStorage.setItem('user', JSON.stringify(action.payload))
+				localStorage.setItem('user', JSON.stringify(action.payload.user))
+				localStorage.setItem('tokens', JSON.stringify(action.payload.tokens))
 			}
 		)
 
@@ -108,6 +142,21 @@ export const userSlice = createSlice({
 		builder.addCase(loginUser.rejected, (state, action) => {
 			state.isLoading = false
 			state.error = action.payload as string
+		})
+
+		builder.addCase(
+			refreshTokens.fulfilled,
+			(state, action: PayloadAction<AuthToken>) => {
+				state.tokens = action.payload
+				localStorage.setItem('tokens', JSON.stringify(action.payload))
+			}
+		)
+
+		builder.addCase(refreshTokens.rejected, state => {
+			state.tokens = null
+			state.currentUser = null
+			localStorage.removeItem('user')
+			localStorage.removeItem('tokens')
 		})
 	},
 })

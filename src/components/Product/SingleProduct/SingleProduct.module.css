@@ -17,7 +17,7 @@
 }
 .current {
 	border-radius: 6px;
-    cursor: zoom-in;
+	cursor: zoom-in;
 }
 .additionalImagesContainer {
 	display: flex;
@@ -92,6 +92,7 @@
 	font-weight: 400;
 	width: 100%;
 	max-width: 340px;
+	overflow: auto;
 }
 .container {
 	display: flex;
@@ -135,7 +136,7 @@
 
 .footer {
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 	margin-top: 10px;
 }
 .purchased {
@@ -154,14 +155,13 @@
 	scale: 1.05;
 }
 
-
 .thumbnailWrapper {
-  position: relative;
-  cursor: pointer;
-  border-radius: 6px;
-  overflow: hidden;
+	position: relative;
+	cursor: pointer;
+	border-radius: 6px;
+	overflow: hidden;
 }
 
 .activeThumbnail {
-  border: 2px solid #6c3eb8;
+	border: 2px solid #6c3eb8;
 }
