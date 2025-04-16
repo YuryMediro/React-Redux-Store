@@ -3,12 +3,13 @@
 	justify-content: space-between;
 	margin-top: 20px;
 	align-items: center;
+	position: relative;
 }
 .logoLink {
 	display: flex;
 	align-items: center;
 }
-.logoutLink{
+.logoutLink {
 	color: #576067;
 }
 .logoText {
@@ -25,9 +26,11 @@
 	cursor: pointer;
 	gap: 16px;
 }
-.userLink{display: flex;
+.userLink {
+	display: flex;
 	align-items: center;
-	gap: 10px;}
+	gap: 10px;
+}
 .userName {
 	font-size: 16px;
 	font-weight: 400;
@@ -62,4 +65,67 @@
 }
 .icon:hover {
 	transform: scale(1.1);
+}
+.searchResults {
+	position: absolute;
+	z-index: 99999999999;
+	width: 303px;
+	background: #ffffff;
+	border-radius: 6px;
+	max-height: 270px;
+	overflow-y: auto;
+}
+.searchResults::-webkit-scrollbar {
+	width: 6px;
+}
+.searchResults::-webkit-scrollbar-track {
+	background: #b8b8b8;
+}
+
+.searchResults::-webkit-scrollbar-thumb {
+	background: #160f29;
+	border-radius: 6px;
+}
+.searchItem {
+	display: flex;
+	align-items: center;
+	padding: 10px;
+	border-bottom: 1px solid #b8b8b8;
+	background-color: #b8b8b8;
+	text-decoration: none;
+	color: black;
+	transition: background 0.2s;
+}
+.searchItem:hover {
+	background: #616e74;
+}
+.image {
+	width: 40px;
+	height: 60px;
+	object-fit: cover;
+	border-radius: 4px;
+	margin-right: 10px;
+}
+.productInfo {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+.productTitle {
+	font-size: 14px;
+	font-weight: 600;
+}
+.productPrice {
+	font-size: 12px;
+	color: #160f2980;
+}
+.productCategory {
+	font-size: 12px;
+}
+.noResults {
+	padding: 10px;
+	text-align: center;
+	background-color: #b8b8b8;
+	font-size: 16px;
+	font-weight: 600;
 }

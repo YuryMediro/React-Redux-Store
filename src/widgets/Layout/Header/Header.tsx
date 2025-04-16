@@ -10,6 +10,9 @@ import { UserRegistration } from '../../../processes/Form/UserForm'
 import { useFormModal } from '../../../hooks/useFormModal'
 import { useAppDispatch, useAppSelector } from '../../../hooks/redux'
 import { logoutUser } from '../../../features/user/userSlice'
+import { useState } from 'react'
+import { useSearchProductsQuery } from '../../../features/api/apiSlice'
+import { useSearchProducts } from '../../../hooks/useSearchProducts'
 
 interface HeaderProps {}
 
@@ -18,13 +21,21 @@ export const Header = ({}: HeaderProps) => {
 	const { currentUser } = useAppSelector(state => state.user)
 	const dispatch = useAppDispatch()
 
+	//Получем все продукты
+	const { data: productsData } = useSearchProductsQuery('')
+	const products = productsData || []
+
+	//Задаем состояние для поиска
+	const [searchQuery, setSearchQuery] = useState('')
+	const { filteredProducts } = useSearchProducts({ products, searchQuery })
+
 	const handleLogout = () => {
 		dispatch(logoutUser())
 	}
 
 	return (
 		<>
-			<section className={s.header}>
+			<header className={s.header}>
 				<div className={s.logo}>
 					<Link to={'/'} className={s.logoLink}>
 						<img src={logo} alt='STORE' />
@@ -59,25 +70,56 @@ export const Header = ({}: HeaderProps) => {
 						</button>
 					)}
 				</div>
-
-				<form className={s.formContainer}>
-					<div className={s.form}>
-						<img className={s.iconSearch} src={search} alt='' />
-						<input
-							className={s.input}
-							type='search'
-							name='search'
-							autoComplete='off'
-							placeholder='Search for anything...'
-						/>
-					</div>
-				</form>
+				<div className={s.searchContainer}>
+					<form className={s.formContainer}>
+						<div className={s.form}>
+							<img className={s.iconSearch} src={search} alt='' />
+							<input
+								className={s.input}
+								type='search'
+								name='search'
+								autoComplete='off'
+								placeholder='Search for anything...'
+								value={searchQuery}
+								onChange={e => setSearchQuery(e.target.value)}
+							/>
+						</div>
+					</form>
+					{searchQuery && (
+						<div className={s.searchResults}>
+							{filteredProducts.length > 0 ? (
+								filteredProducts.map(product => (
+									<Link
+										key={product.id}
+										to={`/products/${product.id}`}
+										className={s.searchItem}
+									>
+										<img
+											src={product.images[0]}
+											alt={product.title}
+											className={s.image}
+										/>
+										<div className={s.productInfo}>
+											<p className={s.productTitle}>{product.title}</p>
+											<p className={s.productPrice}>{product.price}$</p>
+											<p className={s.productCategory}>
+												{product.category.name}
+											</p>
+										</div>
+									</Link>
+								))
+							) : (
+								<p className={s.noResults}>No results</p>
+							)}
+						</div>
+					)}
+				</div>
 
 				<div className={s.iconContainer}>
 					<img className={s.icon} src={likes} alt='' />
 					<img className={s.icon} src={bag} alt='' />
 				</div>
-			</section>
+			</header>
 
 			{!currentUser &&
 				createPortal(

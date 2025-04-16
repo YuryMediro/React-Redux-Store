@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { BASE_URL } from '../../utils/constants'
+import { ProductsType } from '../products/productsSlice'
 
 export const apiSlice = createApi({
 	reducerPath: 'api',
@@ -8,7 +9,10 @@ export const apiSlice = createApi({
 		getProductById: builder.query({
 			query: id => `/products/${id}`,
 		}),
+		searchProducts: builder.query<ProductsType[], string>({
+			query: searchTerm => `/products/?title=${searchTerm}`,
+		}),
 	}),
 })
 
-export const { useGetProductByIdQuery } = apiSlice
+export const { useGetProductByIdQuery, useSearchProductsQuery } = apiSlice
