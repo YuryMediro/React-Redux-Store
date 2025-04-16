@@ -36,14 +36,14 @@ export const Header = ({}: HeaderProps) => {
 	return (
 		<>
 			<header className={s.header}>
-				<div className={s.logo}>
+				<section className={s.logo}>
 					<Link to={'/'} className={s.logoLink}>
 						<img src={logo} alt='STORE' />
 						<div className={s.logoText}>TORE</div>
 					</Link>
-				</div>
+				</section>
 
-				<div className={s.userContainer}>
+				<section className={s.userContainer}>
 					{currentUser ? (
 						<div className={s.user}>
 							<Link to={'/profile'} className={s.userLink}>
@@ -69,8 +69,8 @@ export const Header = ({}: HeaderProps) => {
 							<div className={s.userName}>GUESt</div>
 						</button>
 					)}
-				</div>
-				<div className={s.searchContainer}>
+				</section>
+				<section className={s.searchContainer}>
 					<form className={s.formContainer}>
 						<div className={s.form}>
 							<img className={s.iconSearch} src={search} alt='' />
@@ -85,7 +85,7 @@ export const Header = ({}: HeaderProps) => {
 							/>
 						</div>
 					</form>
-					{searchQuery && (
+					{searchQuery && searchQuery.length > 2 && (
 						<div className={s.searchResults}>
 							{filteredProducts.length > 0 ? (
 								filteredProducts.map(product => (
@@ -113,12 +113,12 @@ export const Header = ({}: HeaderProps) => {
 							)}
 						</div>
 					)}
-				</div>
+				</section>
 
-				<div className={s.iconContainer}>
+				<section className={s.iconContainer}>
 					<img className={s.icon} src={likes} alt='' />
 					<img className={s.icon} src={bag} alt='' />
-				</div>
+				</section>
 			</header>
 
 			{!currentUser &&

@@ -10,9 +10,9 @@ export const SingleProductContainer = ({}: SingleProductContainerProps) => {
 	const { data: product, error, isLoading } = useGetProductByIdQuery(id)
 
 	if (isLoading) return <p>Loading...</p>
-	if (error) return <p>Ошибка загрузки Продукта</p>
+	if (error) return <p>Ошибка загрузки товара</p>
 	// Проверяем, существует ли product, перед рендером
-	if (!product) return <p>Книга не найдена</p>
+	if (!product) return <p>Товар не найден</p>
 
 	return <SingleProduct product={product} />
 }

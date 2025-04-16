@@ -11,9 +11,10 @@ export const Sidebar = ({ categories }: SidebarProps) => {
 	return (
 		<aside className={s.sidebar}>
 			<div className={s.title}>CATEGORIES</div>
+
 			<nav className={s.nav}>
 				<ul className={s.menu}>
-					{categories.slice(0, 4).map(category => (
+					{categories.slice(0, 5).map(category => (
 						<li key={category.id}>
 							<NavLink className={s.item} to={`/category/${category.id}`}>
 								{category.name}

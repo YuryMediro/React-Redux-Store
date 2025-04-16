@@ -40,6 +40,19 @@ export const getProducts = createAsyncThunk(
 	}
 )
 
+export const getProductsByCategory = createAsyncThunk(
+	'products/getProductsByCategory',
+	async (categoryId: number, thunkAPI) => {
+		try {
+			const res = await axios(`${BASE_URL}/categories/${categoryId}/products`)
+			return res.data
+		} catch (err) {
+			console.log(err)
+			return thunkAPI.rejectWithValue(err)
+		}
+	}
+)
+
 export const productsSlice = createSlice({
 	name: 'products',
 	initialState,
@@ -55,6 +68,20 @@ export const productsSlice = createSlice({
 			state.isLoading = true
 		})
 		builder.addCase(getProducts.rejected, state => {
+			state.isLoading = false
+		})
+
+		builder.addCase(
+			getProductsByCategory.fulfilled,
+			(state, action: PayloadAction<ProductsType[]>) => {
+				state.productsList = action.payload
+				state.isLoading = false
+			}
+		)
+		builder.addCase(getProductsByCategory.pending, state => {
+			state.isLoading = true
+		})
+		builder.addCase(getProductsByCategory.rejected, state => {
 			state.isLoading = false
 		})
 	},
