@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import s from './Header.module.css'
 import logo from '../../../assets/logo.svg'
 import avatar from '../../../assets/avatar.svg'
@@ -117,7 +117,9 @@ export const Header = ({}: HeaderProps) => {
 
 				<section className={s.iconContainer}>
 					<img className={s.icon} src={likes} alt='' />
-					<img className={s.icon} src={bag} alt='' />
+					<NavLink to={'/shoppingCart'}>
+						<img className={s.icon} src={bag} alt='' />
+					</NavLink>
 				</section>
 			</header>
 

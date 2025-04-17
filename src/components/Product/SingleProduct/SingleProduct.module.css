@@ -92,7 +92,18 @@
 	font-weight: 400;
 	width: 100%;
 	max-width: 340px;
-	overflow: auto;
+	overflow-y: auto;	
+}
+.description::-webkit-scrollbar {
+	width: 6px;
+}
+.description::-webkit-scrollbar-track {
+	background: #191919;
+}
+
+.description::-webkit-scrollbar-thumb {
+	background: #b8b8b8;
+	border-radius: 6px;
 }
 .container {
 	display: flex;

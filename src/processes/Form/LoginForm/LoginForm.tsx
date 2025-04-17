@@ -13,9 +13,10 @@ import { loginUser } from '../../../features/user/userSlice'
 
 interface LoginFormProps {
 	toggleForm: () => void
+	onSuccess?: () => void
 }
 
-export const LoginForm = ({ toggleForm }: LoginFormProps) => {
+export const LoginForm = ({ toggleForm, onSuccess }: LoginFormProps) => {
 	const dispatch = useAppDispatch()
 	const { isLoading, error } = useAppSelector(state => state.user)
 	const passwordVisible = usePasswordVisible(false)
@@ -39,6 +40,7 @@ export const LoginForm = ({ toggleForm }: LoginFormProps) => {
 				})
 			).unwrap()
 			reset()
+			onSuccess?.()
 		} catch (err) {
 			console.error('Login failed:', err)
 		}

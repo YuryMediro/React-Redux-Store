@@ -14,7 +14,7 @@ export const Categories = ({ title, categories }: CategoriesProps) => {
 				{categories.slice(0, 5).map(category => (
 					<Link
 						className={s.card}
-						to={`/categories/${category.id}`}
+						to={`/category/${category.id}`}
 						key={category.id}
 					>
 						<div className={s.itemContainer}>

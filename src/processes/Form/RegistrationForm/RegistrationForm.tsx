@@ -13,9 +13,13 @@ import { useAppDispatch, useAppSelector } from '../../../hooks/redux'
 import { createUser } from '../../../features/user/userSlice'
 interface RegistrationFormProps {
 	toggleForm: () => void
+	onSuccess?: () => void
 }
 
-export const RegistrationForm = ({ toggleForm }: RegistrationFormProps) => {
+export const RegistrationForm = ({
+	toggleForm,
+	onSuccess,
+}: RegistrationFormProps) => {
 	const dispatch = useAppDispatch()
 	const { isLoading, error } = useAppSelector(state => state.user)
 	const passwordVisible = usePasswordVisible(false)
@@ -42,6 +46,7 @@ export const RegistrationForm = ({ toggleForm }: RegistrationFormProps) => {
 				})
 			).unwrap() // unwrap() для корректной обработки ошибок
 			reset()
+			onSuccess?.()
 		} catch (err) {
 			console.error('Registration failed:', err)
 		}
