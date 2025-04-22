@@ -20,12 +20,11 @@
 }
 .cardContainer {
 	display: flex;
-	gap: 20px;
 	/* justify-content: space-around; */
+	gap: 20px;
 	width: 100%;
-	padding: 22px 15px 50px 20px;
+	padding: 22px 15px 50px 22px ;
 }
-
 .card {
 	display: flex;
 	flex-direction: column;
@@ -42,9 +41,7 @@
 .image {
 	border-radius: 8px;
 	height: 222px;
-	width: 100%;
-	object-fit: contain;
-	background-color: #212123;
+    
 }
 .description {
 	display: flex;

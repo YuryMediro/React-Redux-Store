@@ -14,5 +14,9 @@ export const SingleProductContainer = ({}: SingleProductContainerProps) => {
 	// Проверяем, существует ли product, перед рендером
 	if (!product) return <p>Товар не найден</p>
 
-	return <SingleProduct product={product} />
+	return (
+		<div>
+			<SingleProduct product={product} />
+		</div>
+	)
 }

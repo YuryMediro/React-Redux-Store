@@ -1,6 +1,7 @@
 import { Banner } from '../../components/Banner/Banner'
 import { CategoriesContainer } from '../../components/Categories/CategoriesContainer'
 import { Poster } from '../../components/Poster/Poster'
+import { LessProductsContainer } from '../../components/Product/LessProducts/LessProductsContainer'
 import { ProductsContainer } from '../../components/Product/ProductsContainer'
 import { SidebarContainer } from '../../components/Sidebar/SidebarContainer'
 import { Layout } from '../../widgets/Layout/Layout'
@@ -17,6 +18,7 @@ export const HomePage = () => {
 				<ProductsContainer />
 				<CategoriesContainer />
 				<Banner />
+				<LessProductsContainer />
 			</Layout>
 		</section>
 	)

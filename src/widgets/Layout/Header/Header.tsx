@@ -29,6 +29,10 @@ export const Header = ({}: HeaderProps) => {
 	const [searchQuery, setSearchQuery] = useState('')
 	const { filteredProducts } = useSearchProducts({ products, searchQuery })
 
+	//отображение количества товара в корзине
+	const { items: cartItems } = useAppSelector(state => state.cart)
+	const cartItemsCount = cartItems.reduce((sum, item) => sum + item.quantity, 0)
+
 	const handleLogout = () => {
 		dispatch(logoutUser())
 	}
@@ -116,10 +120,32 @@ export const Header = ({}: HeaderProps) => {
 				</section>
 
 				<section className={s.iconContainer}>
-					<img className={s.icon} src={likes} alt='' />
-					<NavLink to={'/shoppingCart'}>
-						<img className={s.icon} src={bag} alt='' />
-					</NavLink>
+					{currentUser ? (
+						<>
+							<img className={s.icon} src={likes} alt='' />
+							<NavLink to={'/shoppingCart'} className={s.cartLink}>
+								<img className={s.icon} src={bag} alt='Cart' />
+								{cartItemsCount > 0 && (
+									<span className={s.cartBadge}>{cartItemsCount}</span>
+								)}
+							</NavLink>
+						</>
+					) : (
+						<>
+							<img
+								className={s.icon}
+								src={likes}
+								alt=''
+								onClick={modalRegistration.handleOnClick}
+							/>
+							<img
+								className={s.icon}
+								src={bag}
+								alt='Cart'
+								onClick={modalRegistration.handleOnClick}
+							/>
+						</>
+					)}
 				</section>
 			</header>
 
@@ -128,6 +154,7 @@ export const Header = ({}: HeaderProps) => {
 					<UserRegistration
 						visible={modalRegistration.visible}
 						setVisible={modalRegistration.handleOnClick}
+						onSuccess={() => modalRegistration.handleOnClick()}
 					/>,
 					document.body
 				)}

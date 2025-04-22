@@ -66,6 +66,26 @@
 .icon:hover {
 	transform: scale(1.1);
 }
+.cartLink{
+	position: relative;
+  display: inline-block;
+}
+.cartBadge {
+  position: absolute;
+  top: 10px;
+  right: -5px;
+  background-color: #6C3EB8;
+  color: white;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: bold;
+}
+
 .searchResults {
 	position: absolute;
 	z-index: 99999999999;

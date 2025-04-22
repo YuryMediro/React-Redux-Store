@@ -9,6 +9,7 @@ import { createPortal } from 'react-dom'
 import { UserRegistration } from '../../../processes/Form/UserForm'
 import { useFormModal } from '../../../hooks/useFormModal'
 import { addCart } from '../../../features/cart/cartSlice'
+import noImage from '../../../assets/noImage.webp'
 
 interface SingleProductProps {
 	product: ProductsType
@@ -71,6 +72,10 @@ export const SingleProduct = ({ product }: SingleProductProps) => {
 						src={product.images[currentImageIndex]}
 						alt='mainImg'
 						onClick={openGallery}
+						onError={e => {
+							const target = e.target as HTMLImageElement
+							target.src = noImage
+						}}
 					/>
 					<div className={s.additionalImagesContainer}>
 						{product.images.map((image, index) => (
@@ -81,7 +86,14 @@ export const SingleProduct = ({ product }: SingleProductProps) => {
 								}`}
 								onClick={() => setCurrentImageIndex(index)}
 							>
-								<img className={s.additionalImages} src={image} />
+								<img
+									className={s.additionalImages}
+									src={image}
+									onError={e => {
+										const target = e.target as HTMLImageElement
+										target.src = noImage
+									}}
+								/>
 							</div>
 						))}
 					</div>

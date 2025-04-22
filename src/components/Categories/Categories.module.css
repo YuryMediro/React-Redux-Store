@@ -8,6 +8,12 @@
 	height: 100%;
 	min-height: 380px;
 }
+.emptyMessage {
+  color: #ffffff;
+  text-align: center;
+  padding: 20px;
+  font-size: 16px;
+}
 .title {
 	color: #ffffff;
 	font-size: 20px;
@@ -17,7 +23,9 @@
 }
 .cardContainer {
 	display: flex;
-	justify-content: space-around;
+	/* justify-content: space-around; */
+	gap: 20px;
+	padding: 0px 15px 0px 20px;
 }
 .card {
 	display: flex;
@@ -38,6 +46,8 @@
 }
 .img {
     border-radius: 6px;
+	width: 230px;
+	height: 230px;
 }
 .name {
 	color: #ffffff;

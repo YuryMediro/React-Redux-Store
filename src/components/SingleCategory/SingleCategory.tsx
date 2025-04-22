@@ -2,9 +2,10 @@ import { NavLink } from 'react-router-dom'
 import { ProductsType } from '../../features/products/productsSlice'
 import s from './SingleCategory.module.css'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Pagination } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/pagination'
+import { Navigation } from 'swiper/modules'
+import noImage from '../../assets/noImage.webp'
 
 interface SingleCategoryProps {
 	products: ProductsType[] | null
@@ -25,23 +26,24 @@ export const SingleCategory = ({ products }: SingleCategoryProps) => {
 		<div className={s.category}>
 			<h2 className={s.title}>{products[0]?.category?.name || 'Category'}</h2>
 			<Swiper
-				className={s.productsContainer}
-				modules={[Pagination]}
+				className={s.swiper}
+				modules={[Navigation]}
 				slidesPerView={5} // Количество видимых слайдов
-				pagination={{
-					clickable: true, // Делаем пагинацию кликабельной
-					dynamicBullets: true, // Динамические буллеты (опционально)
-					el: '.swiper-pagination',
-				}}
+				navigation
+				loop
 			>
 				{products.map(product => (
 					<SwiperSlide key={product.id} className={s.slide}>
 						<NavLink className={s.card} to={`/products/${product.id}`}>
 							{product.images && product.images.length > 0 && (
 								<img
-									src={product.images[0]}
+									src={product.images?.[0] || noImage}
 									alt={product.title}
 									className={s.image}
+									onError={e => {
+										const target = e.target as HTMLImageElement
+										target.src = noImage
+									}}
 								/>
 							)}
 							<div className={s.productsInfo}>
@@ -64,7 +66,7 @@ export const SingleCategory = ({ products }: SingleCategoryProps) => {
 						</NavLink>
 					</SwiperSlide>
 				))}
-				<div className={`swiper-pagination` }></div>
+				<div className={`swiper-pagination`}></div>
 			</Swiper>
 		</div>
 	)
