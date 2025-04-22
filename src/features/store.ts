@@ -4,6 +4,7 @@ import productsSlice from './products/productsSlice'
 import { apiSlice } from './api/apiSlice'
 import userSlice from './user/userSlice'
 import cartSlice from './cart/cartSlice'
+import favoritesSlice from './favoritses/favoritesSlice'
 
 export const store = configureStore({
 	reducer: {
@@ -12,6 +13,7 @@ export const store = configureStore({
 		[apiSlice.reducerPath]: apiSlice.reducer,
 		user: userSlice,
 		cart: cartSlice,
+		favorites: favoritesSlice,
 	},
 	middleware: getDefaultMiddleware =>
 		getDefaultMiddleware().concat(apiSlice.middleware),

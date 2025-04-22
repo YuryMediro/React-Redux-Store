@@ -1,6 +1,7 @@
 import s from './ShoppingCart.module.css'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux'
 import cross from '../../assets/cross.svg'
+import noImage from '../../assets/noImage.webp'
 import {
 	clearCart,
 	removeFromCart,
@@ -8,10 +9,9 @@ import {
 } from '../../features/cart/cartSlice'
 import { Button } from '../../shared/Button/Button'
 import { FaPlus, FaMinus } from 'react-icons/fa6'
+import { NavLink } from 'react-router-dom'
 
-interface ShoppingCartProps {}
-
-export const ShoppingCart = ({}: ShoppingCartProps) => {
+export const ShoppingCart = () => {
 	const { items } = useAppSelector(state => state.cart)
 	const dispatch = useAppDispatch()
 
@@ -33,29 +33,35 @@ export const ShoppingCart = ({}: ShoppingCartProps) => {
 	}, 0)
 
 	return (
-		<div className={s.wrapper}>
-			<div className={s.header}>
+		<section className={s.wrapper}>
+			<section className={s.header}>
 				<h2 className={s.title}>Your cart</h2>
 				{items.length > 0 && (
 					<Button className={s.buttonClearCart} onClick={handleClearCart}>
 						Clear cart
 					</Button>
 				)}
-			</div>
+			</section>
 			{items.length === 0 ? (
 				<div className={s.emptyCart}>Your cart is empty</div>
 			) : (
 				<>
-					<div className={s.items}>
+					<section className={s.items}>
 						{items.map(item => {
 							const itemTotalPrice = item.price * item.quantity
 							return (
 								<div key={`${item.id}-${item.size}`} className={s.cartItem}>
-									<img
-										src={item.images[0]}
-										alt={item.title}
-										className={s.img}
-									/>
+									<NavLink to={`/products/${item.id}`}>
+										<img
+											src={item.images[0]}
+											alt={item.title}
+											className={s.img}
+											onError={e => {
+												const target = e.target as HTMLImageElement
+												target.src = noImage
+											}}
+										/>
+									</NavLink>
 									<div className={s.productInfo}>
 										<div className={s.description}>
 											<p className={s.productName}>{item.title}</p>
@@ -68,7 +74,7 @@ export const ShoppingCart = ({}: ShoppingCartProps) => {
 										</div>
 										<div className={s.priceQuantity}>
 											<p className={s.price}>{item.price}$</p>
-									
+
 											<div className={s.quantity}>
 												<FaMinus
 													className={s.quantityButton}
@@ -104,17 +110,17 @@ export const ShoppingCart = ({}: ShoppingCartProps) => {
 								</div>
 							)
 						})}
-					</div>
+					</section>
 				</>
 			)}
-			<div className={s.footer}>
+			<section className={s.footer}>
 				<p className={s.total}>
 					TOTAL PRICE: <span>{totalPrice.toFixed(2)}$</span>
 				</p>
 				{items.length > 0 && (
 					<Button className={s.button}>Proceed to checkout</Button>
 				)}
-			</div>
-		</div>
+			</section>
+		</section>
 	)
 }

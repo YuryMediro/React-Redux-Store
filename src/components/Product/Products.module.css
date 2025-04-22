@@ -41,10 +41,10 @@
 }
 .image {
 	border-radius: 8px;
-	height: 222px;
+	/* height: 222px;
 	width: 100%;
 	object-fit: contain;
-	background-color: #212123;
+	background-color: #212123; */
 }
 .description {
 	display: flex;

@@ -18,6 +18,7 @@
 .current {
 	border-radius: 6px;
 	cursor: zoom-in;
+	width: 380px;
 }
 .additionalImagesContainer {
 	display: flex;

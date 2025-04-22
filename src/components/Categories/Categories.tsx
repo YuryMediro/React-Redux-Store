@@ -10,7 +10,7 @@ interface CategoriesProps {
 export const Categories = ({ title, categories }: CategoriesProps) => {
 	if (categories.length === 0) {
 		return (
-			<section className={s.products}>
+			<section className={s.categories}>
 				{title && <h2 className={s.title}>{title}</h2>}
 				<div className={s.emptyMessage}>No categories available </div>
 			</section>

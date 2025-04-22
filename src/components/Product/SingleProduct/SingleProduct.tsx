@@ -10,6 +10,7 @@ import { UserRegistration } from '../../../processes/Form/UserForm'
 import { useFormModal } from '../../../hooks/useFormModal'
 import { addCart } from '../../../features/cart/cartSlice'
 import noImage from '../../../assets/noImage.webp'
+import { addToFavorites } from '../../../features/favoritses/favoritesSlice'
 
 interface SingleProductProps {
 	product: ProductsType
@@ -61,6 +62,22 @@ export const SingleProduct = ({ product }: SingleProductProps) => {
 				})
 			)
 		}
+	}
+
+	const handleAddToFavorites = () => {
+		if (!currentUser) {
+			authModal.handleOnClick()
+			return
+		}
+		if (currentSize === undefined) {
+			return
+		}
+		dispatch(
+			addToFavorites({
+				product,
+				size: currentSize,
+			})
+		)
 	}
 
 	return (
@@ -132,7 +149,14 @@ export const SingleProduct = ({ product }: SingleProductProps) => {
 							>
 								Add to cart
 							</Button>
-							<button className={s.favoritesButton}>Add to favorites</button>
+							<Button
+								onClick={handleAddToFavorites}
+								className={s.button}
+								disabled={!currentSize}
+								title={!currentSize ? 'Please select a size' : ''}
+							>
+								Add to favorites
+							</Button>
 						</div>
 					</div>
 					<div className={s.footer}>

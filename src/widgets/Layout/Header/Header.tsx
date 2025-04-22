@@ -32,6 +32,9 @@ export const Header = ({}: HeaderProps) => {
 	//отображение количества товара в корзине
 	const { items: cartItems } = useAppSelector(state => state.cart)
 	const cartItemsCount = cartItems.reduce((sum, item) => sum + item.quantity, 0)
+	//отображение количества товара в избранных
+	const { favorites: favoritesItems } = useAppSelector(state => state.favorites)
+	const favoritesItemsCount = favoritesItems.length
 
 	const handleLogout = () => {
 		dispatch(logoutUser())
@@ -69,7 +72,7 @@ export const Header = ({}: HeaderProps) => {
 							onClick={modalRegistration.handleOnClick}
 							className={s.user}
 						>
-							<img className={s.avatar} src={avatar} alt='' />
+							<img className={s.avatar} src={avatar} alt='Avatar' />
 							<div className={s.userName}>GUESt</div>
 						</button>
 					)}
@@ -77,7 +80,7 @@ export const Header = ({}: HeaderProps) => {
 				<section className={s.searchContainer}>
 					<form className={s.formContainer}>
 						<div className={s.form}>
-							<img className={s.iconSearch} src={search} alt='' />
+							<img className={s.iconSearch} src={search} alt='Search' />
 							<input
 								className={s.input}
 								type='search'
@@ -122,11 +125,16 @@ export const Header = ({}: HeaderProps) => {
 				<section className={s.iconContainer}>
 					{currentUser ? (
 						<>
-							<img className={s.icon} src={likes} alt='' />
-							<NavLink to={'/shoppingCart'} className={s.cartLink}>
+							<NavLink to={'/favorites'} className={s.link}>
+								<img className={s.icon} src={likes} alt='Favorites' />
+								{favoritesItemsCount > 0 && (
+									<span className={s.ItemsCount}>{favoritesItemsCount}</span>
+								)}
+							</NavLink>
+							<NavLink to={'/shoppingCart'} className={s.link}>
 								<img className={s.icon} src={bag} alt='Cart' />
 								{cartItemsCount > 0 && (
-									<span className={s.cartBadge}>{cartItemsCount}</span>
+									<span className={s.ItemsCount}>{cartItemsCount}</span>
 								)}
 							</NavLink>
 						</>
@@ -135,7 +143,7 @@ export const Header = ({}: HeaderProps) => {
 							<img
 								className={s.icon}
 								src={likes}
-								alt=''
+								alt='Favorites'
 								onClick={modalRegistration.handleOnClick}
 							/>
 							<img

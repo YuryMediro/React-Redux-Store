@@ -12,17 +12,22 @@ export const Sidebar = ({ categories }: SidebarProps) => {
 		<aside className={s.sidebar}>
 			<div className={s.title}>CATEGORIES</div>
 
-			<nav className={s.nav}>
-				<ul className={s.menu}>
-					{categories.slice(0, 5).map(category => (
-						<li key={category.id}>
-							<NavLink className={s.item} to={`/category/${category.id}`}>
-								{category.name}
-							</NavLink>
-						</li>
-					))}
-				</ul>
-			</nav>
+			{categories.length === 0 ? (
+				<div className={s.emptyMessage}>No categories available </div>
+			) : (
+				<nav className={s.nav}>
+					<ul className={s.menu}>
+						{categories.slice(0, 5).map(category => (
+							<li key={category.id}>
+								<NavLink className={s.item} to={`/category/${category.id}`}>
+									{category.name}
+								</NavLink>
+							</li>
+						))}
+					</ul>
+				</nav>
+			)}
+
 			<div className={s.footer}>
 				<a href='#' target='_blank'>
 					Help

@@ -4,6 +4,7 @@ import { HomePage } from '../pages/HomePage/HomePage'
 import { UserProfilePage } from '../pages/UserProfilePage/UserProfilePage'
 import { SingleCategoryPage } from '../pages/SingleCategoryPage/SingleCategoryPage'
 import { ShoppingCartPage } from '../pages/ShoppingCartPage/ShoppingCartPage'
+import { FavoritesPage } from '../pages/FavoritesPage/FavoritesPage'
 
 export const AppRoutes = () => {
 	return (
@@ -13,6 +14,7 @@ export const AppRoutes = () => {
 			<Route path='/profile' element={<UserProfilePage />} />
 			<Route path='/category/:id' element={<SingleCategoryPage />} />
 			<Route path='/shoppingCart' element={<ShoppingCartPage />} />
+			<Route path='/favorites' element={<FavoritesPage />} />
 		</Routes>
 	)
 }
