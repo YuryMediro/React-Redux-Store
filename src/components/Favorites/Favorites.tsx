@@ -7,14 +7,14 @@ import {
 	FavoritesItem,
 	clearFavorites,
 	removeFromFavorites,
-} from '../../features/favoritses/favoritesSlice'
+} from '../../features/favorites/favoritesSlice'
 import { addCart } from '../../features/cart/cartSlice'
 import { NavLink } from 'react-router-dom'
 interface FavoritesProps {}
 
 export const Favorites = ({}: FavoritesProps) => {
 	const dispatch = useAppDispatch()
-	const { favorites } = useAppSelector(state => state.favorites)
+	const { items } = useAppSelector(state => state.favorites)
 
 	const handleRemove = (id: number, size: number) => {
 		dispatch(removeFromFavorites({ id, size }))
@@ -25,7 +25,7 @@ export const Favorites = ({}: FavoritesProps) => {
 	const handleAddToCart = (item: FavoritesItem, quantity: number) => {
 		dispatch(
 			addCart({
-				...item.product,
+				...item,
 				size: item.size,
 				quantity: quantity,
 			})
@@ -35,27 +35,24 @@ export const Favorites = ({}: FavoritesProps) => {
 		<section className={s.wrapper}>
 			<section className={s.header}>
 				<h2 className={s.title}>Favorite products</h2>
-				{favorites.length > 0 && (
+				{items.length > 0 && (
 					<Button onClick={handleClearFavorites} className={s.buttonClearCart}>
 						Clear favorites
 					</Button>
 				)}
 			</section>
-			{favorites.length === 0 ? (
+			{items.length === 0 ? (
 				<div className={s.emptyCart}>Your favorites is empty</div>
 			) : (
 				<>
 					<section className={s.items}>
-						{favorites.map(item => {
+						{items.map(item => {
 							return (
-								<div
-									key={`${item.product.id}-${item.size}`}
-									className={s.cartItem}
-								>
-									<NavLink to={`/products/${item.product.id}`}>
+								<div key={`${item.id}-${item.size}`} className={s.cartItem}>
+									<NavLink to={`/products/${item.id}`}>
 										<img
-											src={item.product.images[0]}
-											alt={item.product.title}
+											src={item.images[0]}
+											alt={item.title}
 											className={s.img}
 											onError={e => {
 												const target = e.target as HTMLImageElement
@@ -65,16 +62,16 @@ export const Favorites = ({}: FavoritesProps) => {
 									</NavLink>
 									<div className={s.productInfo}>
 										<div className={s.description}>
-											<p className={s.productName}>{item.product.title}</p>
+											<p className={s.productName}>{item.title}</p>
 											<div className={s.productCategorySize}>
 												<p className={s.productCategory}>
-													{item.product.category.name}
+													{item.category.name}
 												</p>
 												<p className={s.size}>size: {item.size}</p>
 											</div>
 										</div>
 										<div className={s.priceQuantity}>
-											<p className={s.price}>{item.product.price}$</p>
+											<p className={s.price}>{item.price}$</p>
 											<Button
 												onClick={() => handleAddToCart(item, 1)}
 												className={s.button}
@@ -82,7 +79,7 @@ export const Favorites = ({}: FavoritesProps) => {
 												Add to Cart
 											</Button>
 											<button
-												onClick={() => handleRemove(item.product.id, item.size)}
+												onClick={() => handleRemove(item.id, item.size)}
 												className={s.remove}
 											>
 												<img src={cross} alt={'cross'} />

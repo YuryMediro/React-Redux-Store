@@ -3,7 +3,7 @@ import { ProductsType } from '../products/productsSlice'
 
 export interface CartItem extends ProductsType {
 	size: number
-	quantity: number
+	quantity: number 
 }
 
 interface CartState {

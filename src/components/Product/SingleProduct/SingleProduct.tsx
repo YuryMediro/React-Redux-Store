@@ -10,7 +10,7 @@ import { UserRegistration } from '../../../processes/Form/UserForm'
 import { useFormModal } from '../../../hooks/useFormModal'
 import { addCart } from '../../../features/cart/cartSlice'
 import noImage from '../../../assets/noImage.webp'
-import { addToFavorites } from '../../../features/favoritses/favoritesSlice'
+import { addToFavorites } from '../../../features/favorites/favoritesSlice'
 
 interface SingleProductProps {
 	product: ProductsType
@@ -74,7 +74,7 @@ export const SingleProduct = ({ product }: SingleProductProps) => {
 		}
 		dispatch(
 			addToFavorites({
-				product,
+				...product,
 				size: currentSize,
 			})
 		)

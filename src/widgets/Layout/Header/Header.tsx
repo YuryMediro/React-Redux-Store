@@ -33,7 +33,7 @@ export const Header = ({}: HeaderProps) => {
 	const { items: cartItems } = useAppSelector(state => state.cart)
 	const cartItemsCount = cartItems.reduce((sum, item) => sum + item.quantity, 0)
 	//отображение количества товара в избранных
-	const { favorites: favoritesItems } = useAppSelector(state => state.favorites)
+	const { items: favoritesItems } = useAppSelector(state => state.favorites)
 	const favoritesItemsCount = favoritesItems.length
 
 	const handleLogout = () => {

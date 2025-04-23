@@ -4,8 +4,7 @@ import productsSlice from './products/productsSlice'
 import { apiSlice } from './api/apiSlice'
 import userSlice from './user/userSlice'
 import cartSlice from './cart/cartSlice'
-import favoritesSlice from './favoritses/favoritesSlice'
-
+import favoritesSlice from './favorites/favoritesSlice'
 export const store = configureStore({
 	reducer: {
 		categories: categoriesSlice,
