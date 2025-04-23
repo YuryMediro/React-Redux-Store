@@ -26,6 +26,9 @@ export const SingleProduct = ({ product }: SingleProductProps) => {
 	const [isGalleryOpen, setIsGalleryOpen] = useState(false)
 	const authModal = useFormModal(false)
 
+	// Состояние для уведомления
+	const [notification, setNotification] = useState('')
+
 	const openGallery = () => {
 		setIsGalleryOpen(true)
 	}
@@ -48,6 +51,10 @@ export const SingleProduct = ({ product }: SingleProductProps) => {
 				quantity: 1,
 			})
 		)
+		setNotification('Item added to cart')
+		setTimeout(() => {
+			setNotification('')
+		}, 2000)
 	}
 
 	const handleAuthSuccess = () => {
@@ -78,10 +85,19 @@ export const SingleProduct = ({ product }: SingleProductProps) => {
 				size: currentSize,
 			})
 		)
+		setNotification('Item added to favorites')
+		setTimeout(() => {
+			setNotification('')
+		}, 2000)
 	}
 
 	return (
 		<>
+			{notification && (
+				<div className={s.notification}>
+					<span>{notification}</span>
+				</div>
+			)}
 			<section className={s.product}>
 				<div className={s.imagesContainer}>
 					<img
