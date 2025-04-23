@@ -1,13 +1,13 @@
 import * as yup from 'yup'
 
 export const validateUpdateUserSchema = yup.object().shape({
-	email: yup.string().email('Invalid email').required('Required'),
-	name: yup.string().required('Required'),
-	avatar: yup.string().url('Invalid URL').required('Required'),
+	email: yup.string().email('Invalid mail format').required('Required field'),
+	name: yup.string().required('Required field'),
+	avatar: yup.string().url('Invalid URL').required('Required field'),
 	password: yup
 		.string()
-		.min(8, 'Пароль должен состоять не менее чем из 8 символов')
-		.max(20, 'Пароль не должен состоять более чем из 20 символов')
+		.min(8, 'The password must contain at least 8 characters')
+		.max(20, 'The password must not be more than 20 characters long')
 		.nullable()
 		.transform(value => value || null),
 })

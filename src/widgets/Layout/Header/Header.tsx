@@ -13,6 +13,8 @@ import { logoutUser } from '../../../features/user/userSlice'
 import { useState } from 'react'
 import { useSearchProductsQuery } from '../../../features/api/apiSlice'
 import { useSearchProducts } from '../../../hooks/useSearchProducts'
+import { clearCart } from '../../../features/cart/cartSlice'
+import { clearFavorites } from '../../../features/favorites/favoritesSlice'
 
 interface HeaderProps {}
 
@@ -38,6 +40,8 @@ export const Header = ({}: HeaderProps) => {
 
 	const handleLogout = () => {
 		dispatch(logoutUser())
+		dispatch(clearCart())
+		dispatch(clearFavorites())
 	}
 
 	return (

@@ -6,13 +6,12 @@ export const validateLogSchema = yup.object().shape({
 	email: yup
 		.string()
 		.trim()
-		.required('Обязательное поле')
-		.matches(regExpEmail, 'Неверный формат почты'),
+		.required('Required field')
+		.matches(regExpEmail, 'Invalid mail format'),
 	password: yup
 		.string()
 		.trim()
-		.required('Обязательное поле')
-		.min(8, 'Пароль должен состоять не менее чем из 8 символов')
-		.max(20, 'Пароль не должен состоять более чем из 20 символов'),
-	
+		.required('Required field')
+		.min(8, 'The password must contain at least 8 characters')
+		.max(20, 'The password must not be more than 20 characters long'),
 })
