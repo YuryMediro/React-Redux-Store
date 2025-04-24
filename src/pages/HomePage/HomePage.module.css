@@ -1,9 +1,18 @@
-.home {
+.wrapper {
 	display: flex;
 	flex-direction: column;
 	gap: 21px;
+	padding: 0 20px;
+	 margin: 0 auto; 
 }
 .container {
 	display: flex;
 	gap: 20px;
+}
+@media (max-width: 1400px) {
+	.home {
+		/* padding: 0 20px; */
+		margin: 0 auto;
+		max-width: 1400px;
+	}
 }

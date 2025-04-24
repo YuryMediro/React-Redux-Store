@@ -159,6 +159,69 @@ export const Header = ({}: HeaderProps) => {
 						</>
 					)}
 				</section>
+				<nav className={s.navbarMobile}>
+					<section className={s.userContainerMobile}>
+						{currentUser ? (
+							<div className={s.user}>
+								<Link to={'/profile'} className={s.userLink}>
+									<img
+										className={s.avatar}
+										src={currentUser.avatar || avatar}
+										alt={currentUser.name}
+									/>
+									<div className={s.userName}>{currentUser.name}</div>
+								</Link>
+								<Link to={'/'} className={s.logoutLink}>
+									<button onClick={handleLogout} className={s.logoutButton}>
+										Logout
+									</button>
+								</Link>
+							</div>
+						) : (
+							<button
+								onClick={modalRegistration.handleOnClick}
+								className={s.user}
+							>
+								<img className={s.avatar} src={avatar} alt='Avatar' />
+								<div className={s.userName}>GUEST</div>
+							</button>
+						)}
+					</section>
+
+					<section className={s.iconContainerMobile}>
+						{currentUser ? (
+							<>
+								<NavLink to={'/favorites'} className={s.link}>
+									<img className={s.icon} src={likes} alt='Favorites' />
+									{favoritesItemsCount > 0 && (
+										<span className={s.ItemsCount}>{favoritesItemsCount}</span>
+									)}
+								</NavLink>
+								<NavLink to={'/shoppingCart'} className={s.link}>
+									<img className={s.icon} src={bag} alt='Cart' />
+									{cartItemsCount > 0 && (
+										<span className={s.ItemsCount}>{cartItemsCount}</span>
+									)}
+								</NavLink>
+							</>
+						) : (
+							<>
+								<img
+									className={s.icon}
+									src={likes}
+									alt='Favorites'
+									onClick={modalRegistration.handleOnClick}
+								/>
+								<img
+									className={s.icon}
+									src={bag}
+									alt='Cart'
+									onClick={modalRegistration.handleOnClick}
+								/>
+							</>
+						)}
+					</section>
+				</nav>
 			</header>
 
 			{!currentUser &&

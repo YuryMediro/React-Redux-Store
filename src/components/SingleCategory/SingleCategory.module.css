@@ -90,3 +90,55 @@
   padding: 20px;
   font-size: 16px;
 }
+
+@media (max-width: 1400px) {
+	.category {
+		width: 1100px;
+	}
+	.cardContainer {
+		padding: 20px 15px 40px 20px;
+	}
+
+	.card {
+		width: 200px;
+	}
+}
+
+@media (max-width: 990px) {
+	.category {
+		width: 950px;
+	}
+	.card {
+		width: 170px;
+	}
+	.productsTitle {
+		font-size: 14px;
+	}
+	.productsCat {
+		font-size: 12px;
+	}
+	.info {
+		flex-direction: column;
+	}
+}
+
+@media (max-width: 770px) {
+	.category {
+		width: 700px;
+	}
+
+	.cardContainerMobile {
+		display: flex;
+		gap: 35px;
+		width: 100%;
+		padding: 22px 0px 25px 15px;
+	}
+	.swiperMobile {
+		display: flex !important;
+		width: 100%;
+		padding: 22px 15px 25px 20px !important;
+	}
+	.card {
+		width: 200px;
+	}
+}

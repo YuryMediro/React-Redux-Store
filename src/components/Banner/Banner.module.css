@@ -53,3 +53,65 @@
 	font-size: 20px;
 	font-weight: 600;
 }
+
+@media (max-width: 1400px) {
+	.banner{
+		max-width: 1125px;
+	}
+	.text {
+		font-size: 50px;
+	}
+	.text span {
+		font-size: 100px;
+	}
+	.console {
+		top: 290px;
+	}
+	.discount {
+		padding-top: 370px;
+	}
+}
+
+@media (max-width: 990px) {
+	.text {
+		font-size: 40px;
+	}
+	.text span {
+		font-size: 80px;
+	}
+	.console {
+		top: 250px;
+		left: 390px;
+		width: 200px;
+	}
+	.discount {
+		padding-top: 300px;
+		font-size: 16px;
+		width: 141px;
+	}
+}
+
+@media (max-width: 770px) {
+	.banner {
+		width: 700px;
+	}
+	.text {
+		font-size: 30px;
+	}
+	.text span {
+		font-size: 60px;
+	}
+	.sneaker {
+		width: 160px;
+	}
+	.console {
+		top: 225px;
+		left: 230px;
+		width: 160px;
+	}
+	.discount {
+		padding-top: 260px;
+		font-size: 16px;
+		width: 141px;
+	}
+}

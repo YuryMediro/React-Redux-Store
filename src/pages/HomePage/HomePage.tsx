@@ -9,7 +9,7 @@ import s from './HomePage.module.css'
 
 export const HomePage = () => {
 	return (
-		<section className={s.home}>
+		<section className={s.wrapper}>
 			<Layout>
 				<div className={s.container}>
 					<SidebarContainer />

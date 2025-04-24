@@ -6,10 +6,10 @@
 	flex-direction: column;
 }
 .emptyMessage {
-  color: #ffffff;
-  text-align: center;
-  padding: 20px;
-  font-size: 16px;
+	color: #ffffff;
+	text-align: center;
+	padding: 20px;
+	font-size: 16px;
 }
 .title {
 	color: #ffffff;
@@ -105,4 +105,66 @@
 .swiper {
 	width: 100%;
 	padding: 22px 15px 50px 12px !important;
+}
+.cardContainerMobile {
+	display: none;
+}
+.swiperMobile {
+	display: none !important;
+}
+@media (max-width: 1400px) {
+	.products {
+		max-width: 1125px;
+	}
+	.cardContainer {
+		padding: 20px 15px 40px 20px;
+	}
+
+	.card {
+		width: 200px;
+	}
+}
+
+@media (max-width: 990px) {
+	.products {
+		width: 950px;
+	}
+	.card {
+		width: 170px;
+	}
+	.productsTitle {
+		font-size: 14px;
+	}
+	.productsCat{
+		font-size: 12px;
+	}
+	.info{
+		flex-direction: column;
+	}
+}
+
+@media (max-width: 770px) {
+	.products {
+		width: 700px;
+	}
+	.cardContainer {
+		display: none;
+	}
+	.swiper {
+		display: none !important;
+	}
+	.cardContainerMobile {
+		display: flex;
+		gap: 35px;
+		width: 100%;
+		padding: 22px 0px 25px 15px;
+	}
+	.swiperMobile {
+		display: flex !important;
+		width: 100%;
+		padding: 22px 15px 25px 20px !important;
+	}
+	.card {
+		width: 200px;
+	}
 }

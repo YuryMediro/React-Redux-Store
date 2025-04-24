@@ -76,6 +76,95 @@ export const Products = ({ title, products }: ProductsProps) => {
 					navigation
 					loop
 					className={s.swiper}
+					breakpoints={{}}
+				>
+					{products.map(product => (
+						<SwiperSlide key={product.id}>
+							<NavLink
+								className={s.card}
+								to={`/products/${product.id}`}
+								key={product.id}
+							>
+								{product.images && product.images.length > 0 && (
+									<img
+										src={product.images?.[0] || noImage}
+										alt={product.title}
+										className={s.image}
+										onError={e => {
+											const target = e.target as HTMLImageElement
+											target.src = noImage
+										}}
+									/>
+								)}
+								<div className={s.productsInfo}>
+									<div className={s.description}>
+										<div className={s.productsTitle}>{product.title}</div>
+										<div className={s.productsCat}>{product.category.name}</div>
+									</div>
+									<div className={s.info}>
+										<div className={s.prices}>
+											<div className={s.price}>{product.price}$</div>
+											<div className={s.oldPrice}>
+												{Math.floor(product.price * 0.8)}$
+											</div>
+										</div>
+										<div className={s.purchased}>
+											{Math.floor(Math.random() * 20 + 1)} purchased
+										</div>
+									</div>
+								</div>
+							</NavLink>
+						</SwiperSlide>
+					))}
+				</Swiper>
+			)}
+			{!showAllProducts ? (
+				<div className={s.cardContainerMobile}>
+					{products.slice(0, 3).map(product => (
+						<NavLink
+							className={s.card}
+							to={`/products/${product.id}`}
+							key={product.id}
+						>
+							{product.images && product.images.length > 0 && (
+								<img
+									src={product.images?.[0] || noImage}
+									alt={product.title}
+									className={s.image}
+									onError={e => {
+										const target = e.target as HTMLImageElement
+										target.src = noImage
+									}}
+								/>
+							)}
+							<div className={s.productsInfo}>
+								<div className={s.description}>
+									<div className={s.productsTitle}>{product.title}</div>
+									<div className={s.productsCat}>{product.category.name}</div>
+								</div>
+								<div className={s.info}>
+									<div className={s.prices}>
+										<div className={s.price}>{product.price}$</div>
+										<div className={s.oldPrice}>
+											{Math.floor(product.price * 0.8)}$
+										</div>
+									</div>
+									<div className={s.purchased}>
+										{Math.floor(Math.random() * 20 + 1)} purchased
+									</div>
+								</div>
+							</div>
+						</NavLink>
+					))}
+				</div>
+			) : (
+				<Swiper
+					modules={[Navigation]}
+					slidesPerView={3}
+					navigation
+					loop
+					className={s.swiperMobile}
+					breakpoints={{}}
 				>
 					{products.map(product => (
 						<SwiperSlide key={product.id}>
