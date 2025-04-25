@@ -31,6 +31,16 @@ export const SingleCategory = ({ products }: SingleCategoryProps) => {
 				slidesPerView={5} // Количество видимых слайдов
 				navigation
 				loop
+				breakpoints={{
+					771: {
+						 slidesPerView: 5,
+						
+					},
+					300: {
+						 slidesPerView: 3,
+						
+					},
+				}}
 			>
 				{products.map(product => (
 					<SwiperSlide key={product.id} className={s.slide}>

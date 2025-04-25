@@ -9,6 +9,8 @@
 	padding: 25px 24px 0 24px;
 	height: 100%;
 	min-height: 442px;
+	position: sticky;
+	top: 20px;
 }
 
 .emptyMessage {
@@ -81,6 +83,7 @@
 @media (max-width: 1400px) {
 	.sidebar {
 		min-height: 370px;
+		width: 250px;
 	}
 	.nav {
 		height: 250px;
@@ -89,16 +92,19 @@
 @media (max-width: 990px) {
 	.sidebar {
 		min-height: 350px;
+		width: 220px;
 	}
 	.nav {
 		height: 230px;
+	}
+	.footer a {
+		font-size: 12px;
 	}
 }
 @media (max-width: 770px) {
 	.burgerMenu {
 		display: block;
 	}
-
 	.sidebar {
 		position: fixed;
 		top: 0;

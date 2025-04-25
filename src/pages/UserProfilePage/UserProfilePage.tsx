@@ -5,7 +5,7 @@ import s from './UserProfilePage.module.css'
 
 export const UserProfilePage = () => {
 	return (
-		<section className={s.profile}>
+		<section className={s.wrapper}>
 			<Layout>
 				<div className={s.container}>
 					<SidebarContainer />

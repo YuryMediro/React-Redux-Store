@@ -4,11 +4,12 @@
 	border: 1px solid #191919;
 	background-color: #191919;
 	border-radius: 6px;
-	padding: 25px 32px;
-	width: 950px;
-	height: 442px;
+	padding: 20px 15px;
+	width: 1068px;
+	/* height: 442px; */
 	justify-content: space-between;
 	gap: 16px;
+	
 }
 .header {
 	display: flex;
@@ -190,4 +191,30 @@
 		top: -50px;
 	}
 }
+
+
+@media (max-width: 1400px) {
+	.wrapper {
+		max-width: 800px;
+		/* height: 370px; */
+		gap: 5px;
+	}
+
+	
+}
+
+@media (max-width: 990px) {
+	.wrapper {
+		max-width: 700px;
+		/* height: 350px; */
+		padding: 10px 15px;
+		gap: 15px;
+	}
+	
+}
+
+@media (max-width: 770px) {
+}
+
+
 

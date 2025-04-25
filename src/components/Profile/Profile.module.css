@@ -5,11 +5,11 @@
 	display: flex;
 	flex-direction: column;
 	gap: 22px;
-    width: 100%;
 	padding: 20px 30px;
+	width: 950px;
 }
-.title{
-	color: #FFFFFF;
+.title {
+	color: #ffffff;
 	text-align: center;
 	font-size: 1.125rem;
 	font-weight: 400;
@@ -17,14 +17,13 @@
 .icon {
 	color: white;
 }
-.registrationFormContainer {
+/* .registrationFormContainer {
 	display: flex;
 	flex-direction: column;
 	gap: 60px;
 	height: 100%;
 	width: 100%;
-	
-}
+} */
 
 .registrationForm {
 	display: flex;
@@ -92,21 +91,51 @@
 
 /* Стили для автозаполнения */
 .inputFields:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 30px #212123 inset !important;
-    -webkit-text-fill-color: #f6f6f7 !important;
+	-webkit-box-shadow: 0 0 0 30px #212123 inset !important;
+	-webkit-text-fill-color: #f6f6f7 !important;
 }
 
 .inputFields:-webkit-autofill:focus {
-    -webkit-box-shadow: 0 0 0 30px #212123 inset !important;
-    -webkit-text-fill-color: #f6f6f7 !important;
+	-webkit-box-shadow: 0 0 0 30px #212123 inset !important;
+	-webkit-text-fill-color: #f6f6f7 !important;
 }
 
 .inputFields:-moz-autofill {
-    background-color: #212123 !important;
-    color: #f6f6f7 !important;
+	background-color: #212123 !important;
+	color: #f6f6f7 !important;
 }
 
 .inputFields:-moz-autofill:focus {
-    background-color: #212123 !important;
-    color: #f6f6f7 !important;
+	background-color: #212123 !important;
+	color: #f6f6f7 !important;
+}
+
+@media (max-width: 1400px) {
+	.profile {
+		max-width: 800px;
+		height: 370px;
+		gap: 5px;
+	}
+
+	.registrationForm {
+		gap: 18px;
+		font-size: 1.125rem;
+	}
+}
+
+@media (max-width: 990px) {
+	.profile {
+		max-width: 700px;
+		height: 350px;
+	}
+	.input{
+		padding: 10px;
+	}
+	.registrationForm {
+		gap: 16px;
+		font-size: 1.125rem;
+	}
+}
+
+@media (max-width: 770px) {
 }

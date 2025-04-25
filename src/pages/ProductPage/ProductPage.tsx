@@ -17,7 +17,7 @@ export const ProductPage = () => {
 		categoryId || ''
 	)
 	return (
-		<section className={s.productPage}>
+		<section className={s.wrapper}>
 			<Layout>
 				<div className={s.container}>
 					<SidebarContainer />

@@ -1,7 +1,9 @@
-.profile {
+.wrapper {
 	display: flex;
 	flex-direction: column;
 	gap: 21px;
+	margin: 0 auto;
+	padding: 0 20px;
 }
 .container {
 	display: flex;
