@@ -179,3 +179,23 @@
 
 @media (max-width: 770px) {
 }
+@media (max-width: 480px) {
+	.wrapper {
+		max-width: 550px;
+	}
+	.productName {
+		font-size: 12px;
+	}
+	.productCategory {
+		font-size: 10px;
+	}
+	.price {
+		font-size: 16px;
+	}
+	.size {
+		font-size: 12px;
+	}
+	.button{
+		font-size: 10px;
+	}
+}

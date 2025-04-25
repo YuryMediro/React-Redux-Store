@@ -160,9 +160,12 @@
 
 @media (max-width: 770px) {
 	.header {
-			max-width: 600px;
+		max-width: 600px;
 	}
-	.form{
+	body {
+		padding-bottom: 70px; /* Высота мобильного навбара + отступ */
+	}
+	.form {
 		width: 450px;
 	}
 	.userContainer {
@@ -185,6 +188,7 @@
 		z-index: 1000;
 		margin: 0 20px 0 20px;
 		border-radius: 6px;
+		height: 60px;
 	}
 
 	.userContainerMobile {
@@ -205,5 +209,13 @@
 
 	.searchContainer {
 		margin-bottom: 20px;
+	}
+}
+@media (max-width: 480px) {
+	.header {
+		max-width: 450px;
+	}
+	.form {
+		width: 330px;
 	}
 }

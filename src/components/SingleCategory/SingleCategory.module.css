@@ -132,3 +132,21 @@
 		width: 200px;
 	}
 }
+
+@media (max-width: 480px) {
+	.category {
+		max-width: 550px;
+	}
+	.card {
+		width: 160px;
+	}
+	.productsTitle {
+		font-size: 12px;
+	}
+	.productsCat {
+		font-size: 12px;
+	}
+	.swiper {
+		padding: 20px 15px 25px 20px !important;
+	}
+}

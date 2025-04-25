@@ -128,7 +128,7 @@
 		max-width: 700px;
 		height: 350px;
 	}
-	.input{
+	.input {
 		padding: 10px;
 	}
 	.registrationForm {
@@ -138,4 +138,9 @@
 }
 
 @media (max-width: 770px) {
+}
+@media (max-width: 480px) {
+	.profile {
+		max-width: 550px;
+	}
 }

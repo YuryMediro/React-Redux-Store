@@ -9,7 +9,6 @@
 	/* height: 442px; */
 	justify-content: space-between;
 	gap: 16px;
-	
 }
 .header {
 	display: flex;
@@ -98,7 +97,6 @@
 	align-items: center;
 	justify-content: space-between;
 	width: 50%;
-	
 }
 .price {
 	color: #ffffff;
@@ -134,8 +132,8 @@
 	border: 1px solid #6c3eb8;
 	transition: all 0.3s ease-in-out;
 }
-.itemTotalPrice{
-	color:#6C3EB8;
+.itemTotalPrice {
+	color: #6c3eb8;
 	font-size: 22px;
 	font-weight: 700;
 }
@@ -159,7 +157,7 @@
 
 .notification {
 	position: fixed;
-	top: -50px; 
+	top: -50px;
 	left: 0;
 	right: 0;
 	background-color: #5c635c;
@@ -192,29 +190,48 @@
 	}
 }
 
-
 @media (max-width: 1400px) {
 	.wrapper {
 		max-width: 800px;
-		/* height: 370px; */
+
 		gap: 5px;
 	}
-
-	
 }
 
 @media (max-width: 990px) {
 	.wrapper {
 		max-width: 700px;
-		/* height: 350px; */
+
 		padding: 10px 15px;
 		gap: 15px;
 	}
-	
 }
 
 @media (max-width: 770px) {
 }
 
+@media (max-width: 480px) {
+	.wrapper {
+		max-width: 550px;
+	}
 
+	.productName {
+		font-size: 12px;
+	}
 
+	.productCategory {
+		font-size: 10px;
+	}
+	.price {
+		font-size: 16px;
+	}
+	.size {
+		font-size: 12px;
+	}
+	.itemTotalPrice{
+		font-size: 16px;
+	}
+	.quantityButton{
+		width: 15px;
+	}
+}

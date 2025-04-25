@@ -165,3 +165,26 @@
 		width: 200px;
 	}
 }
+@media (max-width: 480px) {
+	.products {
+		max-width: 550px;
+	}
+	.cardContainerMobile {
+		gap: 20px;
+		width: 100%;
+		padding: 20px 0px 25px 14px;
+	}
+	.card {
+		width: 160px;
+	}
+	.productsTitle{
+		font-size: 12px;
+	}
+	.productsCat{
+		font-size: 12px;
+	}
+	.swiperMobile {
+		
+		padding: 20px 15px 25px 20px !important;
+	}
+}

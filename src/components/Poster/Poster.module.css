@@ -55,21 +55,23 @@
 
 @media (max-width: 1400px) {
 	.poster {
-		max-width: 800px;
+		max-width: 850px;
 		height: 370px;
 	}
-
+	.textContainer {
+		padding-left: 33px;
+	}
 	.title {
-		font-size: 93px;
+		font-size: 100px;
 	}
 	.text {
 		font-size: 30px;
 	}
 	.imgContainer {
-		left: 35px;
+		left: 90px;
 	}
 	.img {
-		max-width: 85%;
+		max-width: 80%;
 
 		transform: translateY(-16%);
 	}
@@ -77,12 +79,12 @@
 
 @media (max-width: 990px) {
 	.poster {
-		max-width: 700px;
+		max-width: 710px;
 		height: 350px;
 	}
 
 	.title {
-		font-size: 70px;
+		font-size: 83px;
 	}
 
 	.text {
@@ -90,23 +92,27 @@
 	}
 
 	.textContainer {
-		min-width: 250px;
+		padding-left: 30px;
+		min-width: 310px;
 	}
-.imgContainer {
-		left: -35px;
+	.imgContainer {
+		left: -0px;
 	}
 	.img {
-		max-width: 105%;
-		transform: translateY(-12%);
+		max-width: 95%;
+		transform: translateY(-15%);
 	}
 }
 
 @media (max-width: 770px) {
+	.poster {
+		max-width: 700px;
+	}
 	.title {
-		font-size: 80px;
+		font-size: 84px;
 	}
 	.textContainer {
-		padding-left: 35px;
+		padding-left: 26px;
 		width: 340px;
 	}
 	.text {
@@ -114,20 +120,31 @@
 	}
 	.img {
 		max-width: 95%;
-		transform: translateY(-13%);
+		transform: translateY(-15%);
 	}
 }
 
-/* @media (max-width: 480px) {
-	.title {
-		font-size: 32px;
+@media (max-width: 480px) {
+	.poster {
+		max-width: 550px;
+		height: 250px;
 	}
-
+	.title {
+		font-size: 64px;
+	}
+	.textContainer {
+		padding-left: 22px;
+		width: 340px;
+		gap: 10px;
+	}
 	.text {
 		font-size: 20px;
 	}
-
-	.img {
-		max-width: 100%;
+	.imgContainer {
+		left: -60px;
 	}
-} */
+	.img {
+		max-width: 115%;
+		transform: translateY(-17%);
+	}
+} 
