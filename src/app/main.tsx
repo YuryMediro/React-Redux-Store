@@ -7,7 +7,7 @@ import { store } from '../features/store'
 
 createRoot(document.getElementById('root')!).render(
 	<Provider store={store}>
-		<HashRouter basename='/React-Redux-Store'>
+		<HashRouter basename='/'>
 			<App />
 		</HashRouter>
 	</Provider>

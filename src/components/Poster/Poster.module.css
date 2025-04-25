@@ -5,12 +5,12 @@
 	background-color: #191919;
 	border-radius: 6px;
 	padding: 0 4px 0 4px;
-	width: 950px;
+	width: 1068px;
 	height: 442px;
 }
 .title {
 	color: #616e74;
-	font-size: 115px;
+	font-size: 110px;
 	font-weight: 900;
 	opacity: 0.3;
 	text-align: center;
@@ -147,4 +147,4 @@
 		max-width: 115%;
 		transform: translateY(-17%);
 	}
-} 
+}

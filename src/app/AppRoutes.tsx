@@ -9,7 +9,7 @@ import { FavoritesPage } from '../pages/FavoritesPage/FavoritesPage'
 export const AppRoutes = () => {
 	return (
 		<Routes>
-			<Route index path='/' element={<HomePage />} />
+			<Route index element={<HomePage />} />
 			<Route path='/products/:id' element={<ProductPage />} />
 			<Route path='/profile' element={<UserProfilePage />} />
 			<Route path='/category/:id' element={<SingleCategoryPage />} />

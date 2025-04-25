@@ -6,7 +6,7 @@
 	flex-direction: column;
 	gap: 22px;
 	padding: 20px 30px;
-	width: 950px;
+	width: 1068px;
 }
 .title {
 	color: #ffffff;
@@ -17,13 +17,6 @@
 .icon {
 	color: white;
 }
-/* .registrationFormContainer {
-	display: flex;
-	flex-direction: column;
-	gap: 60px;
-	height: 100%;
-	width: 100%;
-} */
 
 .registrationForm {
 	display: flex;

@@ -4,6 +4,7 @@
 	border-radius: 6px;
 	display: flex;
 	flex-direction: column;
+	max-width: 1268px;
 }
 .emptyMessage {
 	color: #ffffff;
@@ -123,6 +124,9 @@
 	.card {
 		width: 200px;
 	}
+	.swiperMobile {
+		display: none !important;
+	}
 }
 
 @media (max-width: 990px) {
@@ -140,6 +144,9 @@
 	}
 	.info {
 		flex-direction: column;
+	}
+	.swiperMobile {
+		display: none !important;
 	}
 }
 
@@ -180,14 +187,13 @@
 	.card {
 		width: 160px;
 	}
-	.productsTitle{
+	.productsTitle {
 		font-size: 12px;
 	}
-	.productsCat{
+	.productsCat {
 		font-size: 12px;
 	}
 	.swiperMobile {
-		
 		padding: 20px 15px 25px 20px !important;
 	}
 }

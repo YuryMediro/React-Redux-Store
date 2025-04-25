@@ -34,12 +34,17 @@
 	display: flex;
 	gap: 18px;
 }
+.socials a {
+	color: #6c3eb8;
+}
 .socials a:hover {
 	color: #8b57c6;
 }
+
 .socialIcon {
 	width: 23px;
 }
+
 @media (max-width: 1400px) {
 	.footer {
 		max-width: 1125px;
