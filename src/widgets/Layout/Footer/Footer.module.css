@@ -6,6 +6,7 @@
 	background-color: #191919;
 	border-radius: 6px;
 	padding: 16px 25px 16px 25px;
+	width: 100%;
 }
 .logoLink {
 	display: flex;
@@ -45,23 +46,14 @@
 	width: 23px;
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 480px) {
 	.footer {
-		max-width: 1125px;
+		padding: 16px 5px;
 	}
-}
-
-@media (max-width: 990px) {
-	/*
-    Стили для устройств, у которых ширина viewport меньше или равно 990 пикселей,
-    но больше 770 пикселей.
-    Эти стили подойдут для некоторых мобильных устройств и планшетов
-    */
-}
-
-@media (max-width: 770px) {
-	/*
-    Стили для устройств, у которых ширина viewport меньше или равно 770 пикселей.
-    Это множество мобильных устройств
-    */
+	.copyright {
+		font-size: 12px;
+	}
+	.socialIcon {
+		width: 15px;
+	}
 }

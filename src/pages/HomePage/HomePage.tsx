@@ -16,9 +16,9 @@ export const HomePage = () => {
 					<Poster />
 				</div>
 				<ProductsContainer />
-				<CategoriesContainer />
+				{/* <CategoriesContainer />
 				<Banner />
-				<LessProductsContainer />
+				<LessProductsContainer /> */}
 			</Layout>
 		</section>
 	)

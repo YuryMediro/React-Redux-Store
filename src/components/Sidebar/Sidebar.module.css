@@ -65,7 +65,7 @@
 .burgerMenu {
 	position: fixed;
 	top: 20px;
-	right: 36px;
+	right: 60px;
 	z-index: 1000;
 	display: none;
 }
@@ -83,19 +83,19 @@
 @media (max-width: 1400px) {
 	.sidebar {
 		min-height: 370px;
-		width: 250px;
+		max-width: 250px;
 	}
 	.nav {
-		height: 250px;
+		max-height: 250px;
 	}
 }
 @media (max-width: 990px) {
 	.sidebar {
 		min-height: 350px;
-		width: 220px;
+		max-width: 220px;
 	}
 	.nav {
-		height: 230px;
+		max-height: 230px;
 	}
 	.footer a {
 		font-size: 12px;

@@ -94,35 +94,35 @@ export const Header = ({}: HeaderProps) => {
 								onChange={e => setSearchQuery(e.target.value)}
 							/>
 						</div>
+						{searchQuery && searchQuery.length > 2 && (
+							<div className={s.searchResults}>
+								{filteredProducts.length > 0 ? (
+									filteredProducts.map(product => (
+										<Link
+											key={product.id}
+											to={`/products/${product.id}`}
+											className={s.searchItem}
+										>
+											<img
+												src={product.images[0]}
+												alt={product.title}
+												className={s.image}
+											/>
+											<div className={s.productInfo}>
+												<p className={s.productTitle}>{product.title}</p>
+												<p className={s.productPrice}>{product.price}$</p>
+												<p className={s.productCategory}>
+													{product.category.name}
+												</p>
+											</div>
+										</Link>
+									))
+								) : (
+									<p className={s.noResults}>No results</p>
+								)}
+							</div>
+						)}
 					</form>
-					{searchQuery && searchQuery.length > 2 && (
-						<div className={s.searchResults}>
-							{filteredProducts.length > 0 ? (
-								filteredProducts.map(product => (
-									<Link
-										key={product.id}
-										to={`/products/${product.id}`}
-										className={s.searchItem}
-									>
-										<img
-											src={product.images[0]}
-											alt={product.title}
-											className={s.image}
-										/>
-										<div className={s.productInfo}>
-											<p className={s.productTitle}>{product.title}</p>
-											<p className={s.productPrice}>{product.price}$</p>
-											<p className={s.productCategory}>
-												{product.category.name}
-											</p>
-										</div>
-									</Link>
-								))
-							) : (
-								<p className={s.noResults}>No results</p>
-							)}
-						</div>
-					)}
 				</section>
 
 				<section className={s.iconContainer}>
@@ -186,7 +186,6 @@ export const Header = ({}: HeaderProps) => {
 							</button>
 						)}
 					</section>
-
 					<section className={s.iconContainerMobile}>
 						{currentUser ? (
 							<>

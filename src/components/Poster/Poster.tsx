@@ -17,7 +17,7 @@ export const Poster = ({}: PosterProps) => {
 					<Button className={s.button}>Shop Now</Button>
 				</div>
 				<div className={s.imgContainer}>
-					<img className={s.img} src={computer} alt='' />
+					{/* <img className={s.img} src={computer} alt='' /> */}
 				</div>
 			</div>
 		</section>
