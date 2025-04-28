@@ -38,6 +38,7 @@ export const Products = ({ title, products }: ProductsProps) => {
 							to={`/products/${product.id}`}
 							key={product.id}
 						>
+							{/* Array.isArray(product.images) */}
 							{product.images && product.images.length > 0 && (
 								<img
 									src={product.images?.[0] || noImage}
@@ -76,7 +77,6 @@ export const Products = ({ title, products }: ProductsProps) => {
 					navigation
 					loop
 					className={s.swiper}
-					breakpoints={{}}
 				>
 					{products.map(product => (
 						<SwiperSlide key={product.id}>

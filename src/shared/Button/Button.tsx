@@ -1,5 +1,6 @@
-import { HTMLAttributes } from 'react'
 import s from './Button.module.css'
+import { HTMLAttributes } from 'react'
+import clsx from 'clsx'
 
 interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
 	type?: 'button' | 'reset' | 'submit'
@@ -17,7 +18,7 @@ export const Button = ({
 	return (
 		<button
 			type={type}
-			className={`${s.button} ${className}`}
+			className={clsx(s.button, className)}
 			disabled={disabled}
 			{...props}
 		>

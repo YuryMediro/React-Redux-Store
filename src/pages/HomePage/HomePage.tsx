@@ -1,4 +1,4 @@
-import { Banner } from '../../components/Banner/Banner'
+import { Banner } from '@components/Banner/Banner'
 import { CategoriesContainer } from '../../components/Categories/CategoriesContainer'
 import { Poster } from '../../components/Poster/Poster'
 import { LessProductsContainer } from '../../components/Product/LessProducts/LessProductsContainer'

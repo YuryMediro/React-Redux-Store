@@ -8,7 +8,7 @@ export const SidebarContainer = () => {
 	const { list } = useAppSelector(state => state.categories)
 	useEffect(() => {
 		dispatch(getCategories())
-	}, [dispatch])
+	}, [])
 
 	return <Sidebar categories={list} />
 }

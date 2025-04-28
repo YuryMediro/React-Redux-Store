@@ -12,7 +12,7 @@ export const LessProductsContainer = () => {
 
 	useEffect(() => {
 		dispatch(getProducts())
-	}, [dispatch])
+	}, [])
 
 	return <LessProducts title={'Less than 150$'} products={filteredProducts} />
 }

@@ -9,7 +9,7 @@
 	border-radius: 6px;
 	width: 100%;
 	max-width: 637px;
-	position: sticky;
+	position: relative;
 }
 .sneaker {
 	position: absolute;

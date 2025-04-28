@@ -5,4 +5,18 @@ import react from '@vitejs/plugin-react-swc'
 export default defineConfig({
 	base: '/React-Redux-Store/',
 	plugins: [react()],
+	resolve: {
+		alias: {
+			'@app': '/src/app',
+			'@assets': '/src/assets',
+			'@components': '/src/components',
+			'@features': '/src/features',
+			'@hooks': '/src/hooks',
+			'@pages': '/src/pages',
+			'@processes': '/src/processes',
+			'@shared': '/src/shared',
+			'@utils': '/src/utils',
+			'@widgets': '/src/widgets',
+		},
+	},
 })
