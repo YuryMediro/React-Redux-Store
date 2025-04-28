@@ -47,95 +47,6 @@
 	background: #b8b8b8;
 	border-radius: 6px;
 }
-.cartItem {
-	border: 1px solid #212123;
-	background-color: #212123;
-	border-radius: 8px;
-	display: flex;
-	max-height: 80px;
-	padding: 12px 16px;
-	gap: 16px;
-}
-.img {
-	width: 100%;
-	max-width: 80px;
-	max-height: 100%;
-	border-radius: 6px;
-}
-.productInfo {
-	display: flex;
-	align-items: center;
-	gap: 20px;
-	width: 100%;
-	justify-content: space-between;
-}
-.description {
-	display: flex;
-	flex-direction: column;
-	gap: 3px;
-	width: 280px;
-}
-.productName {
-	color: #ffffff;
-	font-size: 16px;
-	font-weight: 600;
-}
-.productCategorySize {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-.productCategory {
-	color: #b8b8b8;
-	font-size: 14px;
-	font-weight: 500;
-}
-.priceQuantity {
-	display: flex;
-	gap: 10px;
-	align-items: center;
-	justify-content: space-between;
-	width: 50%;
-}
-.price {
-	color: #ffffff;
-	font-size: 20px;
-	font-weight: 700;
-}
-.size {
-	color: #576067;
-	font-size: 14px;
-	font-weight: 500;
-}
-.quantity {
-	align-items: center;
-	display: flex;
-	gap: 10px;
-}
-.quantity span {
-	color: #576067;
-	font-size: 14px;
-	font-weight: 500;
-}
-.quantityButton {
-	color: #ffffff;
-	width: 25px;
-	border: 1px solid #576067;
-	background-color: #576067;
-	border-radius: 6px;
-	transition: all 0.3s ease-in-out;
-}
-
-.quantityButton:hover {
-	background-color: #6c3eb8;
-	border: 1px solid #6c3eb8;
-	transition: all 0.3s ease-in-out;
-}
-.itemTotalPrice {
-	color: #6c3eb8;
-	font-size: 22px;
-	font-weight: 700;
-}
 .footer {
 	display: flex;
 	justify-content: space-between;
@@ -153,42 +64,6 @@
 .button {
 	padding: 8px 20px;
 }
-
-.notification {
-	position: fixed;
-	top: -50px;
-	left: 0;
-	right: 0;
-	background-color: #5c635c;
-	color: white;
-	text-align: center;
-	padding: 10px;
-	font-size: 16px;
-	font-weight: bold;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-	z-index: 1000;
-	animation: slideDown 0.5s ease-in-out forwards,
-		slideUp 0.5s ease-in-out 2.5s forwards;
-}
-
-@keyframes slideDown {
-	from {
-		top: -50px;
-	}
-	to {
-		top: 0;
-	}
-}
-
-@keyframes slideUp {
-	from {
-		top: 0;
-	}
-	to {
-		top: -50px;
-	}
-}
-
 @media (max-width: 1400px) {
 	.wrapper {
 		max-width: 800px;
@@ -212,25 +87,5 @@
 @media (max-width: 480px) {
 	.wrapper {
 		max-width: 550px;
-	}
-
-	.productName {
-		font-size: 12px;
-	}
-
-	.productCategory {
-		font-size: 10px;
-	}
-	.price {
-		font-size: 16px;
-	}
-	.size {
-		font-size: 12px;
-	}
-	.itemTotalPrice{
-		font-size: 16px;
-	}
-	.quantityButton{
-		width: 15px;
 	}
 }

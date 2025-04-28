@@ -6,6 +6,7 @@ interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
 	type?: 'button' | 'reset' | 'submit'
 	className: string
 	disabled?: boolean
+	children: React.ReactNode
 }
 
 export const Button = ({
