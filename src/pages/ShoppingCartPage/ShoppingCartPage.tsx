@@ -1,6 +1,6 @@
-import { ShoppingCart } from '../../components/ShoppingCart/ShoppingCart'
-import { SidebarContainer } from '../../components/Sidebar/SidebarContainer'
-import { Layout } from '../../widgets/Layout/Layout'
+import { ShoppingCart } from '@components/ShoppingCart/ShoppingCart'
+import { SidebarContainer } from '@components/Sidebar/SidebarContainer'
+import { Layout } from '@widgets/Layout/Layout'
 import s from '../ShoppingCartPage/ShoppingCartPage.module.css'
 interface ShoppingCartPageProps {}
 

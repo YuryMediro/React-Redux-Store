@@ -4,13 +4,13 @@ import { FaUser, FaLock, FaEye } from 'react-icons/fa'
 import { MdOutlineAlternateEmail } from 'react-icons/md'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { validateRegSchema } from '../../../utils/validate/validateRegSchema'
-import { formRegValues } from '../../../utils/types/formRegValues'
-import { Button } from '../../../shared/Button/Button'
-import { usePasswordVisible } from '../../../hooks/usePasswordVisible'
+import { useVisible } from '@hooks/hooks'
+import { createUser } from '@features/user/userSlice'
+import { useAppDispatch, useAppSelector } from '@hooks/redux'
+import { Button } from '@shared/Button/Button'
+import { formRegValues } from '@utils/types/formRegValues'
+import { validateRegSchema } from '@utils/validate/validateRegSchema'
 
-import { useAppDispatch, useAppSelector } from '../../../hooks/redux'
-import { createUser } from '../../../features/user/userSlice'
 interface RegistrationFormProps {
 	toggleForm: () => void
 	onSuccess?: () => void
@@ -22,7 +22,7 @@ export const RegistrationForm = ({
 }: RegistrationFormProps) => {
 	const dispatch = useAppDispatch()
 	const { isLoading, error } = useAppSelector(state => state.user)
-	const passwordVisible = usePasswordVisible(false)
+	const passwordVisible = useVisible(false)
 
 	const {
 		register,

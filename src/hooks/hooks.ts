@@ -1,11 +1,20 @@
-import { useEffect, useState } from 'react'
-import { ProductsType } from '../features/products/productsSlice'
+import { ProductsType } from '@features/products/productsSlice'
+import { useState, useEffect } from 'react'
+
+export const useVisible = (initial: boolean) => {
+	const [visible, setVisible] = useState<boolean>(initial)
+
+	const handleOnClick = () => {
+		setVisible(prev => !prev)
+	}
+
+	return { visible, handleOnClick }
+}
 
 interface useSearchProductsProps {
 	products: ProductsType[]
 	searchQuery: string
 }
-
 export const useSearchProducts = ({
 	products,
 	searchQuery,

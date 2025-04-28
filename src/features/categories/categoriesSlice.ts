@@ -1,7 +1,7 @@
 import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { BASE_URL } from '@utils/constants'
+import { Category } from '@utils/types/categoryType'
 import axios from 'axios'
-import { BASE_URL } from '../../utils/constants'
-import { Category } from '../../utils/types/categoryType'
 
 interface initialStateProps {
 	isLoading: boolean

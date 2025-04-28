@@ -1,16 +1,16 @@
 import s from './ShoppingCart.module.css'
-import { useAppDispatch, useAppSelector } from '../../hooks/redux'
-import cross from '../../assets/cross.svg'
-import noImage from '../../assets/noImage.webp'
-import {
-	clearCart,
-	removeFromCart,
-	updateQuantity,
-} from '../../features/cart/cartSlice'
-import { Button } from '../../shared/Button/Button'
+import cross from '@assets/cross.svg'
+import noImage from '@assets/noImage.webp'
 import { FaPlus, FaMinus } from 'react-icons/fa6'
 import { NavLink } from 'react-router-dom'
 import { useState } from 'react'
+import {
+	removeFromCart,
+	updateQuantity,
+	clearCart,
+} from '@features/cart/cartSlice'
+import { useAppSelector, useAppDispatch } from '@hooks/redux'
+import { Button } from '@shared/Button/Button'
 
 export const ShoppingCart = () => {
 	const { items } = useAppSelector(state => state.cart)

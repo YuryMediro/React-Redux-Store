@@ -1,6 +1,6 @@
+import { ProductsType } from '@features/products/productsSlice'
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { BASE_URL } from '../../utils/constants'
-import { ProductsType } from '../products/productsSlice'
+import { BASE_URL } from '@utils/constants'
 
 export const apiSlice = createApi({
 	reducerPath: 'api',

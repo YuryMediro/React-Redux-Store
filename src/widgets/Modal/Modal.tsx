@@ -1,6 +1,6 @@
 import { HTMLAttributes } from 'react'
 import s from './Modal.module.css'
-import cross from '../../assets/cross.svg'
+import cross from '@assets/cross.svg'
 
 interface ModalProps extends HTMLAttributes<HTMLButtonElement> {
 	title: string

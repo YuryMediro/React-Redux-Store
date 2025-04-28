@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
-import { useAppDispatch, useAppSelector } from '../../hooks/redux'
-import { getProducts } from '../../features/products/productsSlice'
 import { Products } from './Products'
+import { getProducts } from '@features/products/productsSlice'
+import { useAppDispatch, useAppSelector } from '@hooks/redux'
 
 export const ProductsContainer = () => {
 	const dispatch = useAppDispatch()
@@ -10,5 +10,5 @@ export const ProductsContainer = () => {
 		dispatch(getProducts())
 	}, [dispatch])
 
-	return <Products products={productsList} title={'Trending'}  />
+	return <Products products={productsList} title={'Trending'} />
 }

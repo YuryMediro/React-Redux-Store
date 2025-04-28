@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom'
-import { useGetProductByIdQuery } from '../../../features/api/apiSlice'
 import { SingleProduct } from './SingleProduct'
+import { useGetProductByIdQuery } from '@features/api/apiSlice'
 
 interface SingleProductContainerProps {}
 

@@ -1,6 +1,6 @@
 import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { BASE_URL } from '@utils/constants'
 import axios from 'axios'
-import { BASE_URL } from '../../utils/constants'
 
 export interface User {
 	id: number

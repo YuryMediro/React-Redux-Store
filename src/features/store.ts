@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
-import categoriesSlice from './categories/categoriesSlice'
-import productsSlice from './products/productsSlice'
 import { apiSlice } from './api/apiSlice'
-import userSlice from './user/userSlice'
 import cartSlice from './cart/cartSlice'
+import categoriesSlice from './categories/categoriesSlice'
 import favoritesSlice from './favorites/favoritesSlice'
+import productsSlice from './products/productsSlice'
+import userSlice from './user/userSlice'
 export const store = configureStore({
 	reducer: {
 		categories: categoriesSlice,

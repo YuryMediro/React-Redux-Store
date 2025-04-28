@@ -1,7 +1,7 @@
 interface FooterProps {}
 import { Link } from 'react-router-dom'
 import s from './Footer.module.css'
-import logo from '../../../assets/logo.svg'
+import logo from '@assets/logo.svg'
 import { FaInstagram, FaTelegramPlane, FaVk } from 'react-icons/fa'
 
 export const Footer = ({}: FooterProps) => {

@@ -3,18 +3,18 @@ import s from './Profile.module.css'
 import { MdOutlineAlternateEmail } from 'react-icons/md'
 import { FaEye, FaLock, FaUser } from 'react-icons/fa'
 import { RxAvatar } from 'react-icons/rx'
-import { Button } from '../../shared/Button/Button'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useAppDispatch, useAppSelector } from '../../hooks/redux'
-import { usePasswordVisible } from '../../hooks/usePasswordVisible'
-import { User, updateUser } from '../../features/user/userSlice'
-import { validateUpdateUserSchema } from '../../utils/validate/ValidateUpdateUserSchema'
+import { useVisible } from '@hooks/hooks'
+import { User, updateUser } from '@features/user/userSlice'
+import { useAppDispatch, useAppSelector } from '@hooks/redux'
+import { Button } from '@shared/Button/Button'
+import { validateUpdateUserSchema } from '@utils/validate/ValidateUpdateUserSchema'
 
 export const Profile = () => {
 	const dispatch = useAppDispatch()
 	const { currentUser, isLoading, error } = useAppSelector(state => state.user)
-	const passwordVisible = usePasswordVisible(false)
+	const passwordVisible = useVisible(false)
 	const {
 		register,
 		handleSubmit,

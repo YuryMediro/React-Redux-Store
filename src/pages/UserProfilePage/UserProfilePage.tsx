@@ -1,6 +1,6 @@
-import { Profile } from '../../components/Profile/Profile'
-import { SidebarContainer } from '../../components/Sidebar/SidebarContainer'
-import { Layout } from '../../widgets/Layout/Layout'
+import { Profile } from '@components/Profile/Profile'
+import { SidebarContainer } from '@components/Sidebar/SidebarContainer'
+import { Layout } from '@widgets/Layout/Layout'
 import s from './UserProfilePage.module.css'
 
 export const UserProfilePage = () => {

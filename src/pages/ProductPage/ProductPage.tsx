@@ -1,13 +1,10 @@
 import { useParams } from 'react-router-dom'
-import { Products } from '../../components/Product/Products'
-import { SingleProductContainer } from '../../components/Product/SingleProduct/SingleProductContainer'
-import { SidebarContainer } from '../../components/Sidebar/SidebarContainer'
-import {
-	useGetProductByIdQuery,
-	useGetProductsByCategoryQuery,
-} from '../../features/api/apiSlice'
-import { Layout } from '../../widgets/Layout/Layout'
 import s from './ProductPage.module.css'
+import { Products } from '@components/Product/Products'
+import { SingleProductContainer } from '@components/Product/SingleProduct/SingleProductContainer'
+import { SidebarContainer } from '@components/Sidebar/SidebarContainer'
+import { useGetProductByIdQuery, useGetProductsByCategoryQuery } from '@features/api/apiSlice'
+import { Layout } from '@widgets/Layout/Layout'
 
 export const ProductPage = () => {
 	const { id } = useParams()

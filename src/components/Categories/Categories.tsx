@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
-import { Category } from '../../utils/types/categoryType'
 import s from './Categories.module.css'
-import noImage from '../../assets/noImage.webp'
+import noImage from '@assets/noImage.webp'
+import { Category } from '@utils/types/categoryType'
 interface CategoriesProps {
 	categories: Category[]
 	title: string

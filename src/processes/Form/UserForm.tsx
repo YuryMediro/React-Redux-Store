@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import { Modal } from '../../widgets/Modal/Modal'
 import { LoginForm } from './LoginForm/LoginForm'
 import { RegistrationForm } from './RegistrationForm/RegistrationForm'
+import { Modal } from '@widgets/Modal/Modal'
 
 interface UserRegistrationProps {
 	visible: boolean

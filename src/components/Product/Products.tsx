@@ -1,13 +1,13 @@
 import { NavLink } from 'react-router-dom'
-import { ProductsType } from '../../features/products/productsSlice'
 import s from './Products.module.css'
-import { Button } from '../../shared/Button/Button'
-import noImage from '../../assets/noImage.webp'
+import noImage from '@assets/noImage.webp'
 import { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import { Navigation } from 'swiper/modules'
+import { ProductsType } from '@features/products/productsSlice'
+import { Button } from '@shared/Button/Button'
 
 interface ProductsProps {
 	products: ProductsType[]

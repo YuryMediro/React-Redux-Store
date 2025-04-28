@@ -1,25 +1,24 @@
 import { Link, NavLink } from 'react-router-dom'
 import s from './Header.module.css'
-import logo from '../../../assets/logo.svg'
-import avatar from '../../../assets/avatar.svg'
-import search from '../../../assets/search.svg'
-import likes from '../../../assets/likes.svg'
-import bag from '../../../assets/bag.svg'
+import logo from '@assets/logo.svg'
+import avatar from '@assets/avatar.svg'
+import search from '@assets/search.svg'
+import likes from '@assets/likes.svg'
+import bag from '@assets/bag.svg'
 import { createPortal } from 'react-dom'
-import { UserRegistration } from '../../../processes/Form/UserForm'
-import { useFormModal } from '../../../hooks/useFormModal'
-import { useAppDispatch, useAppSelector } from '../../../hooks/redux'
-import { logoutUser } from '../../../features/user/userSlice'
 import { useState } from 'react'
-import { useSearchProductsQuery } from '../../../features/api/apiSlice'
-import { useSearchProducts } from '../../../hooks/useSearchProducts'
-import { clearCart } from '../../../features/cart/cartSlice'
-import { clearFavorites } from '../../../features/favorites/favoritesSlice'
+import { useSearchProducts, useVisible } from '@hooks/hooks'
+import { useSearchProductsQuery } from '@features/api/apiSlice'
+import { clearCart } from '@features/cart/cartSlice'
+import { clearFavorites } from '@features/favorites/favoritesSlice'
+import { logoutUser } from '@features/user/userSlice'
+import { useAppSelector, useAppDispatch } from '@hooks/redux'
+import { UserRegistration } from '@processes/Form/UserForm'
 
 interface HeaderProps {}
 
 export const Header = ({}: HeaderProps) => {
-	const modalRegistration = useFormModal(false)
+	const modalRegistration = useVisible(false)
 	const { currentUser } = useAppSelector(state => state.user)
 	const dispatch = useAppDispatch()
 

@@ -1,11 +1,11 @@
 import { NavLink } from 'react-router-dom'
-import { ProductsType } from '../../features/products/productsSlice'
 import s from './SingleCategory.module.css'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import { Navigation } from 'swiper/modules'
-import noImage from '../../assets/noImage.webp'
+import noImage from '@assets/noImage.webp'
+import { ProductsType } from '@features/products/productsSlice'
 
 interface SingleCategoryProps {
 	products: ProductsType[] | null

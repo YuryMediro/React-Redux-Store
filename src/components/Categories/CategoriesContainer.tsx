@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
-import { useAppDispatch, useAppSelector } from '../../hooks/redux'
-import { getCategories } from '../../features/categories/categoriesSlice'
 import { Categories } from './Categories'
+import { getCategories } from '@features/categories/categoriesSlice'
+import { useAppDispatch, useAppSelector } from '@hooks/redux'
 
 export const CategoriesContainer = () => {
 	const dispatch = useAppDispatch()

@@ -1,19 +1,18 @@
 import { useAppDispatch, useAppSelector } from '../../hooks/redux'
-import { Button } from '../../shared/Button/Button'
 import s from './Favorites.module.css'
-import noImage from '../../assets/noImage.webp'
-import cross from '../../assets/cross.svg'
-import {
-	FavoritesItem,
-	clearFavorites,
-	removeFromFavorites,
-} from '../../features/favorites/favoritesSlice'
-import { addCart } from '../../features/cart/cartSlice'
+import noImage from '@assets/noImage.webp'
+import cross from '@assets/cross.svg'
 import { NavLink } from 'react-router-dom'
 import { useState } from 'react'
-interface FavoritesProps {}
+import { addCart } from '@features/cart/cartSlice'
+import {
+	FavoritesItem,
+	removeFromFavorites,
+	clearFavorites,
+} from '@features/favorites/favoritesSlice'
+import { Button } from '@shared/Button/Button'
 
-export const Favorites = ({}: FavoritesProps) => {
+export const Favorites = () => {
 	const dispatch = useAppDispatch()
 	const { items } = useAppSelector(state => state.favorites)
 	const cartItems = useAppSelector(state => state.cart.items)
@@ -79,7 +78,7 @@ export const Favorites = ({}: FavoritesProps) => {
 					<>
 						<section className={s.items}>
 							{items.map(item => {
-								const inCart = isInCart(item) 
+								const inCart = isInCart(item)
 								return (
 									<div key={`${item.id}-${item.size}`} className={s.cartItem}>
 										<NavLink to={`/products/${item.id}`}>

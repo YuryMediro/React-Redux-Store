@@ -1,6 +1,6 @@
+import { Button } from '@shared/Button/Button'
 import s from './Poster.module.css'
-import computer from '../../assets/computer.svg'
-import { Button } from '../../shared/Button/Button'
+import computer from '@assets/computer.svg'
 interface PosterProps {}
 
 export const Poster = ({}: PosterProps) => {

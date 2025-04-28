@@ -1,13 +1,13 @@
 import { useState } from 'react'
-import { ProductsType } from '../../../features/products/productsSlice'
 import s from './LessProducts.module.css'
-import noImage from '../../../assets/noImage.webp'
+import noImage from '@assets/noImage.webp'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import { Navigation } from 'swiper/modules'
 import { NavLink } from 'react-router-dom'
-import { Button } from '../../../shared/Button/Button'
+import { ProductsType } from '@features/products/productsSlice'
+import { Button } from '@shared/Button/Button'
 
 interface LessProductsProps {
 	products: ProductsType[]
@@ -17,14 +17,14 @@ interface LessProductsProps {
 export const LessProducts = ({ title, products }: LessProductsProps) => {
 	const [showAllProducts, setShowAllProducts] = useState(false)
 
-    if (products.length === 0) {
-			return (
-				<section className={s.products}>
-					{title && <h2 className={s.title}>{title}</h2>}
-					<div className={s.emptyMessage}>No products available</div>
-				</section>
-			)
-		}
+	if (products.length === 0) {
+		return (
+			<section className={s.products}>
+				{title && <h2 className={s.title}>{title}</h2>}
+				<div className={s.emptyMessage}>No products available</div>
+			</section>
+		)
+	}
 
 	return (
 		<section className={s.products}>

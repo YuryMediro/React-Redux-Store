@@ -1,5 +1,5 @@
+import { ProductsType } from '@features/products/productsSlice'
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { ProductsType } from '../products/productsSlice'
 
 export interface CartItem extends ProductsType {
 	size: number

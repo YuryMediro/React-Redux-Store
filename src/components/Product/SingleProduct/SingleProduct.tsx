@@ -1,16 +1,16 @@
 import s from './SingleProduct.module.css'
-import { ProductsType } from '../../../features/products/productsSlice'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
-import { Button } from '../../../shared/Button/Button'
-import { ImageGalleryModal } from '../../../widgets/ImageGalleryModal/ImageGalleryModal'
-import { useAppDispatch, useAppSelector } from '../../../hooks/redux'
 import { createPortal } from 'react-dom'
-import { UserRegistration } from '../../../processes/Form/UserForm'
-import { useFormModal } from '../../../hooks/useFormModal'
-import { addCart } from '../../../features/cart/cartSlice'
-import noImage from '../../../assets/noImage.webp'
-import { addToFavorites } from '../../../features/favorites/favoritesSlice'
+import noImage from '@assets/noImage.webp'
+import { useVisible } from '@hooks/hooks'
+import { addCart } from '@features/cart/cartSlice'
+import { addToFavorites } from '@features/favorites/favoritesSlice'
+import { ProductsType } from '@features/products/productsSlice'
+import { useAppDispatch, useAppSelector } from '@hooks/redux'
+import { UserRegistration } from '@processes/Form/UserForm'
+import { Button } from '@shared/Button/Button'
+import { ImageGalleryModal } from '@widgets/ImageGalleryModal/ImageGalleryModal'
 
 interface SingleProductProps {
 	product: ProductsType
@@ -24,7 +24,7 @@ export const SingleProduct = ({ product }: SingleProductProps) => {
 	const [currentImageIndex, setCurrentImageIndex] = useState(0)
 	const [currentSize, setCurrentSize] = useState<number | undefined>(undefined)
 	const [isGalleryOpen, setIsGalleryOpen] = useState(false)
-	const authModal = useFormModal(false)
+	const authModal = useVisible(false)
 
 	// Состояние для уведомления
 	const [notification, setNotification] = useState('')

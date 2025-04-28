@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
-import { useAppDispatch, useAppSelector } from '../../hooks/redux'
 import { SingleCategory } from './SingleCategory'
-import { getProductsByCategory } from '../../features/products/productsSlice'
 import { useParams } from 'react-router-dom'
+import { getProductsByCategory } from '@features/products/productsSlice'
+import { useAppDispatch, useAppSelector } from '@hooks/redux'
 
 interface SingleCategoryContainerProps {}
 

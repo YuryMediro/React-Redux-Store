@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
-import { useAppDispatch, useAppSelector } from '../../hooks/redux'
 import { Sidebar } from './Sidebar'
-import { getCategories } from '../../features/categories/categoriesSlice'
+import { getCategories } from '@features/categories/categoriesSlice'
+import { useAppDispatch, useAppSelector } from '@hooks/redux'
 
 export const SidebarContainer = () => {
 	const dispatch = useAppDispatch()
