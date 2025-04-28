@@ -1,110 +1,43 @@
 import s from './SingleProduct.module.css'
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
 import { createPortal } from 'react-dom'
 import noImage from '@assets/noImage.webp'
-import { useVisible } from '@hooks/hooks'
-import { addCart } from '@features/cart/cartSlice'
-import { addToFavorites } from '@features/favorites/favoritesSlice'
 import { ProductsType } from '@features/products/productsSlice'
-import { useAppDispatch, useAppSelector } from '@hooks/redux'
 import { UserRegistration } from '@processes/Form/UserForm'
 import { Button } from '@shared/Button/Button'
 import { ImageGalleryModal } from '@widgets/ImageGalleryModal/ImageGalleryModal'
+import { useSingleProductLogic } from '@hooks/useSingleProductLogic'
+import { Notification } from '@widgets/Notification/Notification'
 
 interface SingleProductProps {
 	product: ProductsType
 }
 
 export const SingleProduct = ({ product }: SingleProductProps) => {
-	const SIZES = [4, 4.5, 5]
-	const dispatch = useAppDispatch()
-	const { currentUser } = useAppSelector(state => state.user)
-
-	const [currentImageIndex, setCurrentImageIndex] = useState(0)
-	const [currentSize, setCurrentSize] = useState<number | undefined>(undefined)
-	const [isGalleryOpen, setIsGalleryOpen] = useState(false)
-	const authModal = useVisible(false)
-
-	// Состояние для уведомления
-	const [notification, setNotification] = useState('')
-
-	const openGallery = () => {
-		setIsGalleryOpen(true)
-	}
-	const closeGallery = () => {
-		setIsGalleryOpen(false)
-	}
-
-	const handleAddCart = () => {
-		if (!currentUser) {
-			authModal.handleOnClick()
-			return
-		}
-		if (currentSize === undefined) {
-			return
-		}
-		dispatch(
-			addCart({
-				...product,
-				size: currentSize,
-				quantity: 1,
-			})
-		)
-		setNotification('Item added to cart')
-		setTimeout(() => {
-			setNotification('')
-		}, 2000)
-	}
-
-	const handleAuthSuccess = () => {
-		authModal.handleOnClick()
-
-		if (currentSize) {
-			dispatch(
-				addCart({
-					...product,
-					size: currentSize,
-					quantity: 1,
-				})
-			)
-		}
-	}
-
-	const handleAddToFavorites = () => {
-		if (!currentUser) {
-			authModal.handleOnClick()
-			return
-		}
-		if (currentSize === undefined) {
-			return
-		}
-		dispatch(
-			addToFavorites({
-				...product,
-				size: currentSize,
-			})
-		)
-		setNotification('Item added to favorites')
-		setTimeout(() => {
-			setNotification('')
-		}, 2000)
-	}
-
+	const {
+		currentImageIndex,
+		currentSize,
+		isGalleryOpen,
+		notification,
+		authModal,
+		SIZES,
+		setCurrentImageIndex,
+		setCurrentSize,
+		setIsGalleryOpen,
+		handleAddToCart,
+		handleAddToFavorites,
+		handleAuthSuccess,
+	} = useSingleProductLogic(product)
 	return (
 		<>
-			{notification && (
-				<div className={s.notification}>
-					<span>{notification}</span>
-				</div>
-			)}
+			<Notification message={notification} />
 			<section className={s.product}>
 				<div className={s.imagesContainer}>
 					<img
 						className={s.current}
 						src={product.images[currentImageIndex]}
 						alt='mainImg'
-						onClick={openGallery}
+						onClick={() => setIsGalleryOpen(true)}
 						onError={e => {
 							const target = e.target as HTMLImageElement
 							target.src = noImage
@@ -158,7 +91,7 @@ export const SingleProduct = ({ product }: SingleProductProps) => {
 					<div className={s.container}>
 						<div className={s.buttonContainer}>
 							<Button
-								onClick={handleAddCart}
+								onClick={handleAddToCart}
 								disabled={!currentSize}
 								title={!currentSize ? 'Please select a size' : ''}
 								className={s.button}
@@ -186,7 +119,7 @@ export const SingleProduct = ({ product }: SingleProductProps) => {
 				</div>
 				{isGalleryOpen && (
 					<ImageGalleryModal
-						onClose={closeGallery}
+						onClose={() => setIsGalleryOpen(false)}
 						images={product.images}
 						initialIndex={currentImageIndex}
 					/>
