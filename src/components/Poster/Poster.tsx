@@ -14,11 +14,13 @@ export const Poster = ({}: PosterProps) => {
 						LENNON r2d2 <br />
 						with NVIDIA 5090 TI
 					</h1>
+					<h1 className={s.text1}>
+						LENNON r2d2 with NVIDIA 5090 TI
+					</h1>
 					<Button className={s.button}>Shop Now</Button>
 				</div>
-				<div className={s.imgContainer}>
-					{/* <img className={s.img} src={computer} alt='' /> */}
-				</div>
+
+				<img className={s.img} src={computer} alt='' />
 			</div>
 		</section>
 	)
