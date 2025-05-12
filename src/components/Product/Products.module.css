@@ -125,6 +125,7 @@
 	.card {
 		max-width: 200px;
 	}
+	
 	.swiperMobile {
 		display: none !important;
 	}
@@ -165,7 +166,7 @@
 		display: flex;
 		gap: 35px;
 		width: 100%;
-		padding: 22px 0px 25px 15px;
+		padding: 22px 10px 25px 10px;
 	}
 	.swiperMobile {
 		display: flex !important;
@@ -183,10 +184,13 @@
 	.cardContainerMobile {
 		gap: 20px;
 		width: 100%;
-		padding: 20px 0px 25px 14px;
+		padding: 20px 10px 25px 10px;
 	}
 	.card {
 		max-width: 160px;
+	}
+	.productsInfo{
+		padding: 0 5px;
 	}
 	.productsTitle {
 		font-size: 12px;

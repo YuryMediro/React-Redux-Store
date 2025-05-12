@@ -4,6 +4,7 @@
 	border-radius: 6px;
 	display: flex;
 	flex-direction: column;
+	width: 100%;
 }
 .emptyMessage {
 	color: #ffffff;
@@ -58,13 +59,13 @@
 		max-width: 1125px;
 	}
 	.card {
-		width: 200px;
+		max-width: 200px;
 	}
 }
 
 @media (max-width: 990px) {
 	.categories {
-		width: 950px;
+		max-width: 950px;
 	}
 
 	.img {
@@ -75,29 +76,34 @@
 
 @media (max-width: 770px) {
 	.categories {
-		width: 700px;
+		max-width: 700px;
 	}
 	.img {
-		width: 140px;
-		height: 140px;
+		width: 100px;
+		height: 100px;
 	}
 	.name {
-		font-size: 16px;
+		font-size: 14px;
 	}
+	
 	.cardContainer {
 		gap: 15px;
-		padding: 22px 10px 20px 15px;
+		padding: 22px 10px 20px 10px;
 	}
 }
 @media (max-width: 480px) {
 	.categories {
 		max-width: 550px;
 	}
+	.img {
+		width: 70px;
+		height: 80px;
+	}
 	.name {
-		font-size: 12px;
+		font-size: 8px;
 	}
 	.cardContainer {
 		gap: 10px;
-		padding: 20px 10px 20px 10px;
+		padding: 20px 5px 20px 5px;
 	}
 }
