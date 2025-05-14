@@ -132,7 +132,7 @@
 		transform: translateY(90%) translateX(-160%);
 	}
 	.console {
-		max-width:30%;
+		max-width: 30%;
 		transform: translateY(180%) translateX(115%);
 	}
 }

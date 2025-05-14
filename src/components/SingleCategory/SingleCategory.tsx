@@ -32,13 +32,17 @@ export const SingleCategory = ({ products }: SingleCategoryProps) => {
 				navigation
 				loop
 				breakpoints={{
-					771: {
-						 slidesPerView: 5,
-						
+					991: {
+						slidesPerView: 5,
 					},
-					300: {
-						 slidesPerView: 3,
-						
+					771: {
+						slidesPerView: 4,
+					},
+					678: {
+						slidesPerView: 3,
+					},
+					1: {
+						slidesPerView: 2,
 					},
 				}}
 			>
