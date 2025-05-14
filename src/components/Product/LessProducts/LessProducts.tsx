@@ -76,11 +76,19 @@ export const LessProducts = ({ title, products }: LessProductsProps) => {
 					navigation
 					loop
 					className={s.swiper}
+					breakpoints={{
+						991: {
+							slidesPerView: 5,
+						},
+						771: {
+							slidesPerView: 4,
+						},
+					}}
 				>
 					{products.map(product => (
 						<SwiperSlide key={product.id}>
 							<NavLink
-								className={s.card}
+								className={s.cardSwiper}
 								to={`/products/${product.id}`}
 								key={product.id}
 							>
@@ -163,11 +171,19 @@ export const LessProducts = ({ title, products }: LessProductsProps) => {
 					navigation
 					loop
 					className={s.swiperMobile}
+					breakpoints={{
+						678: {
+							slidesPerView: 3,
+						},
+						1: {
+							slidesPerView: 2,
+						},
+					}}
 				>
 					{products.map(product => (
 						<SwiperSlide key={product.id}>
 							<NavLink
-								className={s.card}
+								className={s.cardSwiper}
 								to={`/products/${product.id}`}
 								key={product.id}
 							>

@@ -21,7 +21,6 @@
 }
 .cardContainer {
 	display: flex;
-	/* justify-content: space-around; */
 	gap: 20px;
 	width: 100%;
 	padding: 22px 15px 50px 22px;
@@ -41,7 +40,6 @@
 }
 .image {
 	border-radius: 8px;
-	/* height: 222px; */
 }
 .description {
 	display: flex;
@@ -109,6 +107,15 @@
 .swiperMobile {
 	display: none !important;
 }
+.cardSwiper {
+	display: flex;
+	flex-direction: column;
+	width: 230px;
+	border: 1px solid #212123;
+	background-color: #212123;
+	border-radius: 8px;
+	transition: 0.3s;
+}
 
 @media (max-width: 1400px) {
 	.products {
@@ -121,7 +128,9 @@
 	.card {
 		max-width: 200px;
 	}
-	
+	.cardSwiper {
+		max-width: 180px;
+	}
 	.swiperMobile {
 		display: none !important;
 	}
@@ -132,6 +141,9 @@
 		max-width: 950px;
 	}
 	.card {
+		max-width: 170px;
+	}
+	.cardSwiper {
 		max-width: 170px;
 	}
 	.productsTitle {
@@ -167,9 +179,12 @@
 	.swiperMobile {
 		display: flex !important;
 		width: 100%;
-		padding: 22px 15px 25px 20px !important;
+		padding: 22px 5px 0px 5px !important;
 	}
 	.card {
+		max-width: 200px;
+	}
+	.cardSwiper {
 		max-width: 200px;
 	}
 }
@@ -185,6 +200,9 @@
 	.card {
 		max-width: 160px;
 	}
+	.cardSwiper {
+		max-width: 150px;
+	}
 	.productsInfo{
 		padding: 0 5px;
 	}
@@ -195,6 +213,6 @@
 		font-size: 12px;
 	}
 	.swiperMobile {
-		padding: 20px 15px 25px 20px !important;
+		padding: 20px 5px 0px 5px !important;
 	}
 }
