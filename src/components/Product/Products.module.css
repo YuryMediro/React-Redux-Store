@@ -106,7 +106,7 @@
 }
 .swiper {
 	width: 100%;
-	padding: 22px 15px 50px 12px !important;
+	padding: 22px 15px 0px 12px !important;
 }
 .cardContainerMobile {
 	display: none;
