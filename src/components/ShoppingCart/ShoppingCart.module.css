@@ -5,7 +5,7 @@
 	background-color: #191919;
 	border-radius: 6px;
 	padding: 20px 15px;
-	width: 1068px;
+	width: 100%;
 	justify-content: space-between;
 	gap: 16px;
 }
@@ -57,6 +57,7 @@
 	color: #b8b8b8;
 	font-size: 20px;
 	font-weight: 600;
+	
 }
 .total span {
 	color: #ffffff;
@@ -67,25 +68,34 @@
 @media (max-width: 1400px) {
 	.wrapper {
 		max-width: 800px;
-
-		gap: 5px;
 	}
 }
 
 @media (max-width: 990px) {
 	.wrapper {
 		max-width: 700px;
-
 		padding: 10px 15px;
-		gap: 15px;
 	}
 }
 
-@media (max-width: 770px) {
+
+@media (max-width: 600px) {
+	.footer{
+		flex-direction: column;
+		height: 70px;
+		gap: 5px;
+	}
+	.button{
+		width: 100%;
+	}
 }
 
 @media (max-width: 480px) {
 	.wrapper {
 		max-width: 550px;
 	}
+	
 }
+
+
+

@@ -37,31 +37,35 @@ export const ShoppingCartItems = ({
 						<p className={s.size}>size: {item.size}</p>
 					</div>
 				</div>
-				<div className={s.priceQuantity}>
+				<div className={s.priceContainer}>
 					<p className={s.price}>{item.price}$</p>
-					<div className={s.quantity}>
-						<FaMinus
-							className={s.quantityButton}
-							onClick={() =>
-								handleQuantityChange(item.id, item.size, item.quantity - 1)
-							}
-						/>
-						<span>{item.quantity}</span>
-						<FaPlus
-							className={s.quantityButton}
-							onClick={() =>
-								handleQuantityChange(item.id, item.size, item.quantity + 1)
-							}
-						/>
+					<div className={s.priceQuantity}>
+						<div className={s.quantity}>
+							<FaMinus
+								className={s.quantityButton}
+								onClick={() =>
+									handleQuantityChange(item.id, item.size, item.quantity - 1)
+								}
+							/>
+							<span>{item.quantity}</span>
+							<FaPlus
+								className={s.quantityButton}
+								onClick={() =>
+									handleQuantityChange(item.id, item.size, item.quantity + 1)
+								}
+							/>
+						</div>
+						<div className={s.itemTotalPrice}>
+							{item.price * item.quantity}$
+						</div>
 					</div>
-					<div className={s.itemTotalPrice}>{item.price * item.quantity}$</div>
-					<button
-						onClick={() => handleRemove(item.id, item.size)}
-						className={s.remove}
-					>
-						<img src={cross} alt={'cross'} />
-					</button>
 				</div>
+				<button
+					onClick={() => handleRemove(item.id, item.size)}
+					className={s.remove}
+				>
+					<img src={cross} alt={'cross'} />
+				</button>
 			</div>
 		</div>
 	)
