@@ -6,7 +6,7 @@
 	flex-direction: column;
 	gap: 22px;
 	padding: 20px 30px;
-	width: 1068px;
+	width: 100%;
 }
 .title {
 	color: #ffffff;
@@ -45,6 +45,7 @@
 	font-size: 1.125rem;
 	font-weight: 400;
 	color: #f6f6f7;
+	text-overflow: ellipsis;
 }
 .inputFields::placeholder {
 	color: #616e74;
@@ -130,10 +131,3 @@
 	}
 }
 
-@media (max-width: 770px) {
-}
-@media (max-width: 480px) {
-	.profile {
-		max-width: 550px;
-	}
-}
