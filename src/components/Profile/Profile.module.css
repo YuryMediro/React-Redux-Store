@@ -107,7 +107,7 @@
 @media (max-width: 1400px) {
 	.profile {
 		max-width: 800px;
-		height: 370px;
+		min-height: 370px;
 		gap: 5px;
 	}
 
@@ -120,7 +120,7 @@
 @media (max-width: 990px) {
 	.profile {
 		max-width: 700px;
-		height: 350px;
+		min-height: 350px;
 	}
 	.input {
 		padding: 10px;

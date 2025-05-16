@@ -14,5 +14,9 @@ export const validateRegSchema = yup.object().shape({
 		.required('Required field')
 		.min(8, 'The password must contain at least 8 characters')
 		.max(20, 'The password must not be more than 20 characters long'),
-	name: yup.string().trim().required('Required field'),
+	name: yup
+		.string()
+		.trim()
+		.required('Required field')
+		.max(15, 'The name must not be more than 15 characters long'),
 })

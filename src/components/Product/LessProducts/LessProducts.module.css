@@ -23,12 +23,12 @@
 	display: flex;
 	gap: 20px;
 	width: 100%;
-	padding: 22px 15px 50px 22px;
+	padding: 22px 15px 50px 20px;
 }
 .card {
 	display: flex;
 	flex-direction: column;
-	width: 230px;
+	max-width: 230px;
 	border: 1px solid #212123;
 	background-color: #212123;
 	border-radius: 8px;
@@ -99,7 +99,7 @@
 }
 .swiper {
 	width: 100%;
-	padding: 22px 15px 0px 12px !important;
+	padding: 22px 15px 50px 12px !important;
 }
 .cardContainerMobile {
 	display: none;
@@ -114,6 +114,10 @@
 	border: 1px solid #212123;
 	background-color: #212123;
 	border-radius: 8px;
+	transition: 0.3s;
+}
+.cardSwiper:hover {
+	scale: 1.1;
 	transition: 0.3s;
 }
 
@@ -179,7 +183,7 @@
 	.swiperMobile {
 		display: flex !important;
 		width: 100%;
-		padding: 22px 5px 0px 5px !important;
+		padding: 22px 5px 20px 5px !important;
 	}
 	.card {
 		max-width: 200px;
@@ -213,6 +217,6 @@
 		font-size: 12px;
 	}
 	.swiperMobile {
-		padding: 20px 5px 0px 5px !important;
+		padding: 20px 5px 20px 5px !important;
 	}
 }

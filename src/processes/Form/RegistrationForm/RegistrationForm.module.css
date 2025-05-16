@@ -75,21 +75,23 @@
 
 /* Стили для автозаполнения */
 .inputFields:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 30px #212123 inset !important;
-    -webkit-text-fill-color: #f6f6f7 !important;
+	-webkit-box-shadow: 0 0 0 30px #212123 inset !important;
+	-webkit-text-fill-color: #f6f6f7 !important;
 }
 
 .inputFields:-webkit-autofill:focus {
-    -webkit-box-shadow: 0 0 0 30px #212123 inset !important;
-    -webkit-text-fill-color: #f6f6f7 !important;
+	-webkit-box-shadow: 0 0 0 30px #212123 inset !important;
+	-webkit-text-fill-color: #f6f6f7 !important;
 }
 
 .inputFields:-moz-autofill {
-    background-color: #212123 !important;
-    color: #f6f6f7 !important;
+	background-color: #212123 !important;
+	color: #f6f6f7 !important;
 }
 
 .inputFields:-moz-autofill:focus {
-    background-color: #212123 !important;
-    color: #f6f6f7 !important;
+	background-color: #212123 !important;
+	color: #f6f6f7 !important;
 }
+
+

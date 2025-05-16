@@ -36,3 +36,9 @@
 .modal_close {
 	cursor: pointer;
 }
+
+@media (max-width: 770px) {
+	.modal_content{
+		padding: 20px;
+	}
+}

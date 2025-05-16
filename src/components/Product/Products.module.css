@@ -29,7 +29,7 @@
 .card {
 	display: flex;
 	flex-direction: column;
-	width: 230px;
+	max-width: 230px;
 	border: 1px solid #212123;
 	background-color: #212123;
 	border-radius: 8px;
@@ -63,7 +63,7 @@
 .productsCat {
 	color: #b8b8b8;
 	font-size: 13px;
-	font-weight: 500;
+	font-weight: 600;
 }
 .info {
 	display: flex;
@@ -100,7 +100,9 @@
 }
 .swiper {
 	width: 100%;
-	padding: 22px 15px 0px 12px !important;
+	height: 100%;
+	max-height: 420px !important;
+	padding: 22px 15px 50px 12px !important;
 }
 .cardContainerMobile {
 	display: none;
@@ -117,6 +119,10 @@
 	border-radius: 8px;
 	transition: 0.3s;
 }
+.cardSwiper:hover {
+	scale: 1.1;
+	transition: 0.3s;
+}
 @media (max-width: 1400px) {
 	.products {
 		max-width: 1125px;
@@ -131,6 +137,12 @@
 	.cardSwiper {
 		max-width: 180px;
 	}
+	.swiper {
+	
+	height: 100%;
+	max-height: 370px !important;
+	
+}
 
 	.swiperMobile {
 		display: none !important;
@@ -180,7 +192,9 @@
 	.swiperMobile {
 		display: flex !important;
 		width: 100%;
-		padding: 22px 5px 0px 5px !important;
+		padding: 22px 5px 20px 5px !important;
+		height: 100%;
+		max-height: 370px !important;
 	}
 	.card {
 		max-width: 200px;
@@ -214,6 +228,8 @@
 		font-size: 12px;
 	}
 	.swiperMobile {
-		padding: 20px 5px 0px 5px !important;
+		padding: 20px 5px 20px 5px !important;
+			height: 100%;
+		max-height: 320px !important;
 	}
 }
