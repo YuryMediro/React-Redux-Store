@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
 import { SingleProduct } from './SingleProduct'
 import { useGetProductByIdQuery } from '@features/api/apiSlice'
-
+import s from './SingleProduct.module.css'
 interface SingleProductContainerProps {}
 
 export const SingleProductContainer = ({}: SingleProductContainerProps) => {
@@ -15,7 +15,7 @@ export const SingleProductContainer = ({}: SingleProductContainerProps) => {
 	if (!product) return <p>Товар не найден</p>
 
 	return (
-		<div>
+		<div className={s.wrapper}>
 			<SingleProduct product={product} />
 		</div>
 	)

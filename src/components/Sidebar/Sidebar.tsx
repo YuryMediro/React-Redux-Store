@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import s from './Sidebar.module.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import clsx from 'clsx'
 import { Category } from '@utils/types/categoryType'
@@ -12,17 +12,35 @@ interface SidebarProps {
 
 export const Sidebar = ({ categories }: SidebarProps) => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+	useEffect(() => {
+		const closeMenu = () => setIsMenuOpen(false)
+
+		if (isMenuOpen) {
+			window.addEventListener('click', closeMenu)
+		}
+		return () => document.removeEventListener('click', closeMenu)
+	}, [isMenuOpen])
+
 	return (
 		<>
 			<div className={s.burgerMenu}>
 				<button
-					onClick={() => setIsMenuOpen(!isMenuOpen)}
+					onClick={e => {
+						e.stopPropagation() // блокируем всплытие клика
+						setIsMenuOpen(!isMenuOpen)
+					}}
 					className={s.burgerButton}
 				>
 					<GiHamburgerMenu />
 				</button>
 			</div>
-			<aside className={clsx(s.sidebar, { [s.open]: isMenuOpen })}>
+			<aside
+				onClick={e => {
+					e.stopPropagation() // блокируем закрытие при клике внутри меню 
+				}}
+				className={clsx(s.sidebar, { [s.open]: isMenuOpen })}
+			>
 				<div className={s.title}>CATEGORIES</div>
 
 				{categories.length === 0 ? (

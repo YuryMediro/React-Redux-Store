@@ -5,6 +5,7 @@ import avatar from '@assets/avatar.svg'
 import search from '@assets/search.svg'
 import likes from '@assets/likes.svg'
 import bag from '@assets/bag.svg'
+import noImage from '@assets/noImage.webp'
 import { createPortal } from 'react-dom'
 import { useState } from 'react'
 import { useSearchProducts, useVisible } from '@hooks/hooks'
@@ -107,6 +108,10 @@ export const Header = ({}: HeaderProps) => {
 												src={product.images[0]}
 												alt={product.title}
 												className={s.image}
+												onError={e => {
+													const target = e.target as HTMLImageElement
+													target.src = noImage
+												}}
 											/>
 											<div className={s.productInfo}>
 												<p className={s.productTitle}>{product.title}</p>

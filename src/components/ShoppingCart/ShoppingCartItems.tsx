@@ -64,7 +64,7 @@ export const ShoppingCartItems = ({
 					onClick={() => handleRemove(item.id, item.size)}
 					className={s.remove}
 				>
-					<img src={cross} alt={'cross'} />
+					<img className={s.cross} src={cross} alt={'cross'} />
 				</button>
 			</div>
 		</div>
