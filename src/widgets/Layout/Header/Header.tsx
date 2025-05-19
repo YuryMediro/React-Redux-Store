@@ -7,8 +7,8 @@ import likes from '@assets/likes.svg'
 import bag from '@assets/bag.svg'
 import noImage from '@assets/noImage.webp'
 import { createPortal } from 'react-dom'
-import { useState } from 'react'
-import { useSearchProducts, useVisible } from '@hooks/hooks'
+import {useState } from 'react'
+import { useClickOutside, useSearchProducts, useVisible } from '@hooks/hooks'
 import { useSearchProductsQuery } from '@features/api/apiSlice'
 import { clearCart } from '@features/cart/cartSlice'
 import { clearFavorites } from '@features/favorites/favoritesSlice'
@@ -37,6 +37,10 @@ export const Header = ({}: HeaderProps) => {
 	//отображение количества товара в избранных
 	const { items: favoritesItems } = useAppSelector(state => state.favorites)
 	const favoritesItemsCount = favoritesItems.length
+
+	const searchResultsRef = useClickOutside(searchQuery.trim().length > 2, () =>
+		setSearchQuery('')
+	)
 
 	const handleLogout = () => {
 		dispatch(logoutUser())
@@ -96,13 +100,14 @@ export const Header = ({}: HeaderProps) => {
 							/>
 						</div>
 						{searchQuery && searchQuery.length > 2 && (
-							<div className={s.searchResults}>
+							<div className={s.searchResults} ref={searchResultsRef}>
 								{filteredProducts.length > 0 ? (
 									filteredProducts.map(product => (
 										<Link
 											key={product.id}
 											to={`/products/${product.id}`}
 											className={s.searchItem}
+											onClick={() => setSearchQuery('')}
 										>
 											<img
 												src={product.images[0]}

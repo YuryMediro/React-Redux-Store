@@ -1,5 +1,5 @@
 import { ProductsType } from '@features/products/productsSlice'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 export const useVisible = (initial: boolean) => {
 	const [visible, setVisible] = useState<boolean>(initial)
@@ -40,4 +40,27 @@ export const useSearchProducts = ({
 	}, [products, searchQuery])
 
 	return { filteredProducts }
+}
+
+// хук для закрытия окна поиска при клике вне его
+export const useClickOutside = (isOpen: boolean, onClose: () => void) => {
+	const ref = useRef<HTMLDivElement>(null)
+
+	useEffect(() => {
+		const handleClickOutside = (event: MouseEvent) => {
+			if (ref.current && !ref.current.contains(event.target as Node)) {
+				onClose()
+			}
+		}
+
+		if (isOpen) {
+			document.addEventListener('mousedown', handleClickOutside)
+		}
+
+		return () => {
+			document.removeEventListener('mousedown', handleClickOutside)
+		}
+	}, [isOpen, onClose])
+
+	return ref
 }
